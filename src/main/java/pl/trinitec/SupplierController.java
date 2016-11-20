@@ -29,7 +29,7 @@ public class SupplierController {
 
     @PostMapping("/supplier")
     public void addSupplier(@ModelAttribute SupplierForm supplier, HttpServletResponse response) throws IOException {
-        supplierRepository.save(new Supplier(supplier.getName(), supplier.getZipCode()));
+        supplierRepository.save(new Supplier(supplier.getName(), supplier.getName2(), supplier.getZipCode()));
         response.sendRedirect("/supplierForm");
     }
 

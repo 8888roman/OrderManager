@@ -15,14 +15,18 @@ public class Supplier {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
     private String name;
+    private String name2;
     private String zipCode;
 
     protected Supplier() {}
 
-    public Supplier(String name, String zipCode) {
+    public Supplier(String name, String name2, String zipCode) {
         this.name = name;
+        this.name2 = name2;
         this.zipCode = zipCode;
     }
+
+
 
     @Override
     public String toString() {
