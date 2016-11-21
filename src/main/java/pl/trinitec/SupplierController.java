@@ -25,10 +25,9 @@ public class SupplierController {
 
     @GetMapping("/suppliers")public String showSuppliers ( Model model) {
 
-        ArrayList<Supplier> suppliers = new ArrayList<>();
-        supplierRepository.findAll().forEach(n->
-                suppliers.add(n));
-        model.addAttribute("suppliersList",suppliers );
+//        ArrayList<Supplier> suppliers = new ArrayList<>();
+//        supplierRepository.findAll();
+        model.addAttribute("suppliersList", supplierRepository.findAll() );
         return "suppliers";
     }
 

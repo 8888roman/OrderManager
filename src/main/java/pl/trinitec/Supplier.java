@@ -47,6 +47,9 @@ public class Supplier {
         this.phoneNumber = phoneNumber;
     }
 
+    public String getName(){
+        return name;
+    }
 
 
     @Override
