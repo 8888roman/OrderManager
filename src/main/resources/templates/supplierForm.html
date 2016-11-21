@@ -10,7 +10,15 @@
 <form action="#" th:action="@{/supplier}" th:object="${supplierForm}" method="post">
     <p>Nazwa: <input type="text" th:field="*{name}" /></p>
     <p>Nazwa cd: <input type="text" th:field="*{name2}" /></p>
+    <p>NIP: <input type="text" th:field="*{taxIdNumber}" /></p>
+    <p>Adres: <input type="text" th:field="*{address}" /></p>
     <p>Kod pocztowy: <input type="text" th:field="*{zipCode}" /></p>
+    <p>Miasto: <input type="text" th:field="*{city}" /></p>
+    <p>Kraj: <input type="text" th:field="*{country}" /></p>
+    <p>Osoba kontaktowa: <input type="text" th:field="*{contactPerson}" /></p>
+    <p>E-mail: <input type="text" th:field="*{email}" /></p>
+    <p>Telefon: <input type="text" th:field="*{phoneNumber}" /></p>
+
     <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
 </form>
 </body>
