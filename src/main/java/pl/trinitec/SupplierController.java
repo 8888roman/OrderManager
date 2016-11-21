@@ -1,6 +1,6 @@
 package pl.trinitec;
 
-import jdk.nashorn.internal.objects.annotations.Constructor;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * Created by AN-KOP on 2016-11-19.
@@ -17,9 +18,20 @@ public class SupplierController {
 
     @GetMapping("/supplier")
     public String displaySupplier( Model model) {
+
         model.addAttribute("supplierList", supplierRepository.count());
         return "supplier";
     }
+
+    @GetMapping("/suppliers")public String showSuppliers ( Model model) {
+
+        ArrayList<Supplier> suppliers = new ArrayList<>();
+        supplierRepository.findAll().forEach(n->
+                suppliers.add(n));
+        model.addAttribute("suppliersList",suppliers );
+        return "suppliers";
+    }
+
 
     @GetMapping("/supplierForm")
     public String displaySupplierForm(Model model) {
