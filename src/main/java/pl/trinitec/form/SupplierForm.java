@@ -1,10 +1,16 @@
-package pl.trinitec;
+package pl.trinitec.form;
 
 /**
  * Created by AN-KOP on 2016-11-19.
  */
+
+import org.hibernate.validator.constraints.Email;
+
+import javax.validation.constraints.Min;
+
 public class SupplierForm {
 
+//    @Min(3)
     private String name;
     private String name2;
     private String taxIdNumber;
@@ -13,6 +19,7 @@ public class SupplierForm {
     private String city;
     private String country;
     private String contactPerson;
+//    @Email
     private String email;
     private String phoneNumber;
 

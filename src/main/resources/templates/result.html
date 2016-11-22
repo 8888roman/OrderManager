@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista dostawców</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h3>Lista dostawców</h3>
+<p th:each="supplierForm : ${suppliers}">
+<!--<h4>ID:</h4>-->
+<!--<div th:text="${supplierForm.id}"></div>-->
+<h4>Nazwa:</h4>
+<div th:text="${supplierForm.name}"></div>
+<h4>Nazwa cd:</h4>
+<div th:text="${supplierForm.name2}"></div>
+<h4>NIP:</h4>
+<div th:text="${supplierForm.taxIdNumber}"></div>
+<h4>Adres:</h4>
+<div th:text="${supplierForm.address}"></div>
+<h4>Kod pocztowy:</h4>
+<div th:text="${supplierForm.zipCode}"></div>
+<h4>Miasto:</h4>
+<div th:text="${supplierForm.city}"></div>
+<h4>Kraj:</h4>
+<div th:text="${supplierForm.country}"></div>
+<h4>Osoba kontaktowa:</h4>
+<div th:text="${supplierForm.contactPerson}"></div>
+<h4>E-mail:</h4>
+<div th:text="${supplierForm.email}"></div>
+<h4>Telefon:</h4>
+<div th:text="${supplierForm.phoneNumber}"></div>
+<div>---------------------------------------------------------</div>
+</p>
+</body>
+</html>
