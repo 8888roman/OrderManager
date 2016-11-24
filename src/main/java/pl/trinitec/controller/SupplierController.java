@@ -1,6 +1,10 @@
 package pl.trinitec.controller;
 
 
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import pl.trinitec.domain.Supplier;
 import pl.trinitec.form.SupplierForm;
 import pl.trinitec.repository.SupplierRepository;
@@ -51,45 +55,16 @@ public class SupplierController{
         model.addAttribute("suppliers", supplierRepository.findAll());
         return "result";
     }
-//
-//
-//    @GetMapping("/supplier")
-//    public String displaySupplier( Model model) {
-//
-//        model.addAttribute("supplierList", supplierRepository.count());
-//        return "supplier";
-//    }
-//
-//    @GetMapping("/suppliers")public String showSuppliers ( Model model) {
-//
-////        ArrayList<Supplier> suppliers = new ArrayList<>();
-////        supplierRepository.findAll();
-//        model.addAttribute("suppliersList", supplierRepository.findAll() );
-//        return "suppliers";
-//    }
-//
-//
-//    @GetMapping("/supplierForm")
-//    public String displaySupplierForm(Model model) {
-//        model.addAttribute("supplierForm",new SupplierForm());
-//        return "supplierForm";
-//    }
-//
-//    @PostMapping("/supplier")
-//    public void addSupplier(@ModelAttribute SupplierForm supplier, HttpServletResponse response) throws IOException {
-//        supplierRepository.save(new Supplier(supplier.getName(),
-//                                             supplier.getName2(),
-//                                             supplier.getTaxIdNumber(),
-//                                             supplier.getAddress(),
-//                                             supplier.getZipCode(),
-//                                             supplier.getCity(),
-//                                             supplier.getCountry(),
-//                                             supplier.getContactPerson(),
-//                                             supplier.getEmail(),
-//                                             supplier.getPhoneNumber() ));
-//        response.sendRedirect("/supplierForm");
-//    }
 
+    @Configuration
+    @EnableWebMvc
+    public class WebConfig extends WebMvcConfigurerAdapter {
+
+        @Override
+        public void addResourceHandlers(ResourceHandlerRegistry registry) {
+            registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
+        }
+    }
 
 
 }
