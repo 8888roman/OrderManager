@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spring Boot and Thymeleaf example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> </meta>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.4/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen" />
+
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
+            th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+
+
+</head>
+<body>
+
+<div class="container">
+<h3>Dodaj dostawcę</h3>
+
+<form action="#" th:action="@{/}" th:object="${supplierForm}" method="post">
+
+    <div class="row">
+
+            <div class="col-sm-6">
+                <td>Nazwa:</td>
+                <td><input type="text" th:field="*{name}" /></td>
+                <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Title error message</td>
+            </div>
+            <div class="col-sm-6">
+                <td>Nazwa cd:</td>
+                <td><input type="text" th:field="*{name2}" /></td>
+                <td th:if="${#fields.hasErrors('name2')}" th:errors="*{name2}">Content error message</td>
+            </div>
+
+
+    </div>
+
+
+    <div class="row">
+
+        <div class="col-sm-6">
+            <td>NIP:</td>
+            <td><input type="text" th:field="*{taxIdNumber}" /></td>
+            <td th:if="${#fields.hasErrors('taxIdNumber')}" th:errors="*{taxIdNumber}">Content error message</td>
+        </div>
+        <div class="col-sm-6">
+            <td>Adres:</td>
+            <td><input type="text" th:field="*{address}" /></td>
+            <td th:if="${#fields.hasErrors('address')}" th:errors="*{address}">Content error message</td>
+        </div>
+
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-sm-4">
+            <td>Kod pocztowy:</td>
+            <td><input type="text" th:field="*{zipCode}" /></td>
+            <td th:if="${#fields.hasErrors('zipCode')}" th:errors="*{zipCode}">Content error message</td>
+        </div>
+        <div class="col-sm-4">
+            <td>Miasto:</td>
+            <td><input type="text" th:field="*{city}" /></td>
+            <td th:if="${#fields.hasErrors('city')}" th:errors="*{city}">Content error message</td>
+        </div>
+        <div class="col-sm-4">
+            <td>Kraj:</td>
+            <td><input type="text" th:field="*{country}" /></td>
+            <td th:if="${#fields.hasErrors('country')}" th:errors="*{country}">Content error message</td>
+        </div>
+
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-sm-4">
+            <td>Osoba kontaktowa:</td>
+            <td><input type="text" th:field="*{contactPerson}" /></td>
+            <td th:if="${#fields.hasErrors('contactPerson')}" th:errors="*{contactPerson}">Content error message</td>
+        </div>
+        <div class="col-sm-4">
+            <td>E-mail:</td>
+            <td><input type="text" th:field="*{email}" /></td>
+            <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Content error message</td>
+        </div>
+        <div class="col-sm-4">
+            <td>Telefon:</td>
+            <td><input type="text" th:field="*{phoneNumber}" /></td>
+            <td th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}">Content error message</td>
+        </div>
+
+
+    </div>
+
+    <div class="row">
+
+    <td><button type="submit" class="btn btn-success btn-block">ZAPISZ</button></td>
+    </div>
+</form>
+
+</div>
+</body>
+</html>

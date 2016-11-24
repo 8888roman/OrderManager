@@ -26,15 +26,23 @@ public class SupplierController{
     private SupplierRepository supplierRepository;
 
 
+
+
+
     @RequestMapping(value="/", method=RequestMethod.GET)
-    public String index(SupplierForm supplierForm) {
+    public String index(Model model) {
         return "index";
+    }
+
+    @RequestMapping(value="/addsupplier", method=RequestMethod.GET)
+    public String addsupplier(SupplierForm supplierForm) {
+        return "addsupplier";
     }
 
     @RequestMapping(value = "/", method = RequestMethod.POST)
     public String addNewSupplier(@Valid SupplierForm supplierForm, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
-            return "index";
+            return "addsupplier";
         }
         supplierRepository.save(new Supplier(supplierForm.getName(),
                                              supplierForm.getName2(),
@@ -47,13 +55,13 @@ public class SupplierController{
                                              supplierForm.getEmail(),
                                              supplierForm.getPhoneNumber()));
         model.addAttribute("suppliers", supplierRepository.findAll());
-        return "redirect:result";
+        return "redirect:supplierlist";
     }
 
-    @RequestMapping(value = "/result", method = RequestMethod.GET)
+    @RequestMapping(value = "/supplierlist", method = RequestMethod.GET)
     public String showAllSuppliers(Model model) {
         model.addAttribute("suppliers", supplierRepository.findAll());
-        return "result";
+        return "supplierlist";
     }
 
     @Configuration
