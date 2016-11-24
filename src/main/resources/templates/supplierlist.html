@@ -2,34 +2,83 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Lista dostawców</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> </meta>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.4/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen" />
+
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
+            th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+
+
 </head>
 <body>
-<h3>Lista dostawców</h3>
-<p th:each="supplierForm : ${suppliers}">
-<!--<h4>ID:</h4>-->
-<!--<div th:text="${supplierForm.id}"></div>-->
-<h4>Nazwa:</h4>
-<div th:text="${supplierForm.name}"></div>
-<h4>Nazwa cd:</h4>
-<div th:text="${supplierForm.name2}"></div>
-<h4>NIP:</h4>
-<div th:text="${supplierForm.taxIdNumber}"></div>
-<h4>Adres:</h4>
-<div th:text="${supplierForm.address}"></div>
-<h4>Kod pocztowy:</h4>
-<div th:text="${supplierForm.zipCode}"></div>
-<h4>Miasto:</h4>
-<div th:text="${supplierForm.city}"></div>
-<h4>Kraj:</h4>
-<div th:text="${supplierForm.country}"></div>
-<h4>Osoba kontaktowa:</h4>
-<div th:text="${supplierForm.contactPerson}"></div>
-<h4>E-mail:</h4>
-<div th:text="${supplierForm.email}"></div>
-<h4>Telefon:</h4>
-<div th:text="${supplierForm.phoneNumber}"></div>
-<div>---------------------------------------------------------</div>
-</p>
+<div class="container-fluid">
+    <div class="jumbotron text-left">
+        <a href="/" class="btn btn-default btn-lg">
+            <span class="glyphicon glyphicon-chevron-left"></span> Wstecz
+        </a>
+        <h1>Lista dostawców</h1>
+    </div>
+</div>
+<div class="container">
+    <div th:if="${not #lists.isEmpty(suppliers)}">
+        <table class="table table-stripped">
+            <tr>
+                <th>Nazwa</th>
+                <th>Nazwa cd</th>
+                <th>NIP</th>
+                <th>Adres</th>
+                <th>Kod</th>
+                <th>Miasto</th>
+                <th>Kraj</th>
+                <th>Osoba kontaktowa</th>
+                <th>Email</th>
+                <th>Telefon</th>
+            </tr>
+            <tr th:each="supplierForm : ${suppliers}">
+                <td th:text="${supplierForm.name}"></td>
+                <td th:text="${supplierForm.name2}"></td>
+                <td th:text="${supplierForm.taxIdNumber}"></td>
+                <td th:text="${supplierForm.address}"></td>
+                <td th:text="${supplierForm.zipCode}"></td>
+                <td th:text="${supplierForm.city}"></td>
+                <td th:text="${supplierForm.country}"></td>
+                <td th:text="${supplierForm.contactPerson}"></td>
+                <td th:text="${supplierForm.email}"></td>
+                <td th:text="${supplierForm.phoneNumber}"></td>
+
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!--<p th:each="supplierForm : ${suppliers}">-->
+<!--&lt;!&ndash;<h4>ID:</h4>&ndash;&gt;-->
+<!--&lt;!&ndash;<div th:text="${supplierForm.id}"></div>&ndash;&gt;-->
+<!--<h4>Nazwa:</h4>-->
+<!--<div th:text="${supplierForm.name}"></div>-->
+<!--<h4>Nazwa cd:</h4>-->
+<!--<div th:text="${supplierForm.name2}"></div>-->
+<!--<h4>NIP:</h4>-->
+<!--<div th:text="${supplierForm.taxIdNumber}"></div>-->
+<!--<h4>Adres:</h4>-->
+<!--<div th:text="${supplierForm.address}"></div>-->
+<!--<h4>Kod pocztowy:</h4>-->
+<!--<div th:text="${supplierForm.zipCode}"></div>-->
+<!--<h4>Miasto:</h4>-->
+<!--<div th:text="${supplierForm.city}"></div>-->
+<!--<h4>Kraj:</h4>-->
+<!--<div th:text="${supplierForm.country}"></div>-->
+<!--<h4>Osoba kontaktowa:</h4>-->
+<!--<div th:text="${supplierForm.contactPerson}"></div>-->
+<!--<h4>E-mail:</h4>-->
+<!--<div th:text="${supplierForm.email}"></div>-->
+<!--<h4>Telefon:</h4>-->
+<!--<div th:text="${supplierForm.phoneNumber}"></div>-->
+<!--<div>-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</div>-->
+<!--</p>-->
 </body>
 </html>

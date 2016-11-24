@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <title>Spring Boot and Thymeleaf example</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> </meta>
@@ -15,11 +16,20 @@
 
 </head>
 <body>
-
+<div class="container-fluid">
+    <div class="jumbotron text-left">
+        <a href="/" class="btn btn-default btn-lg">
+            <span class="glyphicon glyphicon-chevron-left"></span> Wstecz
+        </a>
+        <h1>Dodaj dostawcę</h1>
+    </div>
+</div>
 <div class="container">
-<h3>Dodaj dostawcę</h3>
+
 
 <form action="#" th:action="@{/}" th:object="${supplierForm}" method="post">
+
+    <div class="well">
 
     <div class="row">
 
@@ -107,7 +117,7 @@
         </div>
         <div class="col-sm-4">
             <div class="form-group">
-                <label for="usr">telefon:</label>
+                <label for="usr">Telefon:</label>
                 <input type="text" class="form-control" th:field="*{phoneNumber}"  id="usr"/>
                 <td th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}">Title error message</td>
             </div>
@@ -124,6 +134,7 @@
         <div class="col-sm-4">
             <button type="submit" class="btn btn-success btn-block">ZAPISZ</button>
         </div>
+    </div>
     </div>
 </form>
 

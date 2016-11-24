@@ -4,6 +4,7 @@ package pl.trinitec.domain;
  * Created by AN-KOP on 2016-11-19.
  */
         import org.hibernate.validator.constraints.Email;
+        import org.hibernate.validator.constraints.NotEmpty;
 
         import javax.persistence.*;
         import javax.validation.constraints.Min;

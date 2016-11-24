@@ -5,22 +5,33 @@ package pl.trinitec.form;
  */
 
 import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
+import sun.plugin2.message.Message;
 
 import javax.validation.constraints.Min;
 
 public class SupplierForm {
 
 //    @Min(3)
+    @NotEmpty(message="Wpisz nazwę dostawcy")
     private String name;
     private String name2;
+    @NotEmpty(message="Wpisz NIP")
     private String taxIdNumber;
+    @NotEmpty(message="Wpisz adres")
     private String address;
+    @NotEmpty(message="Wpisz kod pocztowy")
     private String zipCode;
+    @NotEmpty(message="Wpisz miasto")
     private String city;
+    @NotEmpty(message="Wpisz kraj")
     private String country;
+    @NotEmpty(message="Uzupełnij osobę kontaktową")
     private String contactPerson;
-//    @Email
+    @NotEmpty(message="podaj email")
+    @Email(message="podaj poprawny email")
     private String email;
+    @NotEmpty(message="Podaj numer telefonu")
     private String phoneNumber;
 
     public String getName() {
