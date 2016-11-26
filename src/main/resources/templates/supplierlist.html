@@ -27,6 +27,7 @@
     <div th:if="${not #lists.isEmpty(suppliers)}">
         <table class="table table-stripped">
             <tr>
+                <th>Id</th>
                 <th>Nazwa</th>
                 <th>Nazwa cd</th>
                 <th>NIP</th>
@@ -39,6 +40,7 @@
                 <th>Telefon</th>
             </tr>
             <tr th:each="supplierForm : ${suppliers}">
+                <td th:text="${supplierForm.id}"></td>
                 <td th:text="${supplierForm.name}"></td>
                 <td th:text="${supplierForm.name2}"></td>
                 <td th:text="${supplierForm.taxIdNumber}"></td>
