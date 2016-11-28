@@ -12,13 +12,15 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import pl.trinitec.domain.Part;
-import pl.trinitec.domain.Supplier;
+
 import pl.trinitec.form.PartForm;
-import pl.trinitec.form.SupplierForm;
+
 import pl.trinitec.repository.PartRepository;
-import pl.trinitec.repository.SupplierRepository;
+
 
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by AN-KOP on 2016-11-19.
@@ -42,9 +44,15 @@ public class PartController {
             return "addpart";
         }
         partRepository.save(new Part(partForm.getName(),
-                                         partForm.getCatalogueNumber(),
-                                         partForm.getPartType(),
-                                         partForm.getProducer()));
+                                     partForm.getCatalogueNumber(),
+                                     partForm.getDescription(),
+                                     partForm.getUnit(),
+                                     partForm.getQuantity(),
+                                     partForm.getPricePerUnit(),
+                                     partForm.getExchangeRate(),
+                                     partForm.getNettoValue(),
+                                     partForm.getDiscount(),
+                                     partForm.getPartTotalValue()));
         model.addAttribute("parts", partRepository.findAll());
         return "redirect:partlist";
     }
@@ -64,6 +72,7 @@ public class PartController {
             registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
         }
     }
+
 
 
 }

@@ -15,18 +15,31 @@
 
 
 </head>
+
 <body>
-<div class="container-fluid">
-    <div class="jumbotron text-left">
-        <a href="/" class="btn btn-default btn-lg">
-            <span class="glyphicon glyphicon-chevron-left"></span> Wstecz
-        </a>
-        <h1>Dodaj dostawcę</h1>
+<div class="container">
+    <div class="jumbotron text-center">
+        <img src="http://www.trinitec.pl/wp-content/uploads/2016/03/logo.png" class="img-rounded"/>
     </div>
 </div>
 <div class="container">
 
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <!--<a class="navbar-brand" href="#">Wybierz akcję:</a>-->
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/addsupplier">DODAJ DOSTAWCĘ</a></li>
+                <li><a href="/supplierlist">POKAŻ DOSTAWCÓW</a></li>
+                <li><a href="/addpart">DODAJ CZĘŚĆ</a></li>
+                <li><a href="/partlist">POKAŻ CZĘŚCI</a></li>
+            </ul>
+        </div>
+    </nav>
 
+</div>
+<div class="container">
 <form action="#" th:action="@{/}" th:object="${supplierForm}" method="post">
 
     <div class="well">
@@ -35,8 +48,8 @@
 
             <div class="col-sm-6">
                 <div class="form-group">
-                    <label for="usr">Nazwa:</label>
-                    <input type="text" class="form-control" th:field="*{name}"  id="usr"/>
+                    <label for="name">Nazwa:</label>
+                    <input type="text" class="form-control" th:field="*{name}" placeholder="Siemens"  id="name"/>
                     <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Title error message</td>
                 </div>
 
@@ -44,8 +57,8 @@
             </div>
             <div class="col-sm-6">
                 <div class="form-group">
-                    <label for="usr">Nazwa cd:</label>
-                    <input type="text" class="form-control" th:field="*{name2}"  id="usr"/>
+                    <label for="name2">Nazwa cd:</label>
+                    <input type="text" class="form-control" th:field="*{name2}" placeholder="producent sterowników PLC" id="name2"/>
                     <td th:if="${#fields.hasErrors('name2')}" th:errors="*{name2}">Title error message</td>
                 </div>
             </div>
@@ -58,15 +71,15 @@
 
         <div class="col-sm-6">
             <div class="form-group">
-                <label for="usr">NIP:</label>
-                <input type="text" class="form-control" th:field="*{taxIdNumber}"  id="usr"/>
+                <label for="taxIdNumber">NIP:</label>
+                <input type="text" class="form-control" th:field="*{taxIdNumber}" placeholder="123-456-78-90" id="taxIdNumber"/>
                 <td th:if="${#fields.hasErrors('taxIdNumber')}" th:errors="*{taxIdNumber}">Title error message</td>
             </div>
         </div>
         <div class="col-sm-6">
             <div class="form-group">
-                <label for="usr">Adres:</label>
-                <input type="text" class="form-control" th:field="*{address}"  id="usr"/>
+                <label for="address">Adres:</label>
+                <input type="text" class="form-control" th:field="*{address}" placeholder="Aleje Jerozolimskie" id="address"/>
                 <td th:if="${#fields.hasErrors('address')}" th:errors="*{address}">Title error message</td>
             </div>
         </div>
@@ -78,22 +91,22 @@
 
         <div class="col-sm-4">
             <div class="form-group">
-                <label for="usr">Kod pocztowy:</label>
-                <input type="text" class="form-control" th:field="*{zipCode}"  id="usr"/>
+                <label for="zipCode">Kod pocztowy:</label>
+                <input type="text" class="form-control" th:field="*{zipCode}" placeholder="xx-xxx" id="zipCode"/>
                 <td th:if="${#fields.hasErrors('zipCode')}" th:errors="*{zipCode}">Title error message</td>
             </div>
         </div>
         <div class="col-sm-4">
             <div class="form-group">
-                <label for="usr">Miasto:</label>
-                <input type="text" class="form-control" th:field="*{city}"  id="usr"/>
+                <label for="city">Miasto:</label>
+                <input type="text" class="form-control" th:field="*{city}" placeholder="Warszawa" id="city"/>
                 <td th:if="${#fields.hasErrors('city')}" th:errors="*{city}">Title error message</td>
             </div>
         </div>
         <div class="col-sm-4">
             <div class="form-group">
-                <label for="usr">Kraj:</label>
-                <input type="text" class="form-control" th:field="*{country}"  id="usr"/>
+                <label for="country">Kraj:</label>
+                <input type="text" class="form-control" th:field="*{country}" placeholder="Polska" id="country"/>
                 <td th:if="${#fields.hasErrors('country')}" th:errors="*{country}">Title error message</td>
             </div>
         </div>
@@ -103,22 +116,22 @@
     <div class="row">
         <div class="col-sm-4">
             <div class="form-group">
-                <label for="usr">Osoba kontaktowa:</label>
-                <input type="text" class="form-control" th:field="*{contactPerson}"  id="usr"/>
+                <label for="contactPerson">Osoba kontaktowa:</label>
+                <input type="text" class="form-control" th:field="*{contactPerson}" placeholder="Jan Kowalski" id="contactPerson"/>
                 <td th:if="${#fields.hasErrors('contactPerson')}" th:errors="*{contactPerson}">Title error message</td>
             </div>
         </div>
         <div class="col-sm-4">
             <div class="form-group">
-                <label for="usr">E-mail:</label>
-                <input type="text" class="form-control" th:field="*{email}"  id="usr"/>
+                <label for="email">E-mail:</label>
+                <input type="text" class="form-control" th:field="*{email}" placeholder="jan.kowalski@trinitec.pl" id="email"/>
                 <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Title error message</td>
             </div>
         </div>
         <div class="col-sm-4">
             <div class="form-group">
-                <label for="usr">Telefon:</label>
-                <input type="text" class="form-control" th:field="*{phoneNumber}"  id="usr"/>
+                <label for="phoneNumber">Telefon:</label>
+                <input type="text" class="form-control" th:field="*{phoneNumber}" placeholder="+48 123-456-789" id="phoneNumber"/>
                 <td th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}">Title error message</td>
             </div>
         </div>
@@ -137,7 +150,10 @@
     </div>
     </div>
 </form>
-
+    <!--guzik wstecz-->
+    <a href="/" class="btn btn-default btn-lg">
+        <span class="glyphicon glyphicon-chevron-left"></span> Wstecz
+    </a>
 </div>
 </body>
 </html>

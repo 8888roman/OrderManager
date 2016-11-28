@@ -31,42 +31,42 @@
             </div>
             <ul class="nav navbar-nav">
                 <li><a href="/addsupplier">DODAJ DOSTAWCĘ</a></li>
-                <li  class="active"><a href="/supplierlist">POKAŻ DOSTAWCÓW</a></li>
+                <li><a href="/supplierlist">POKAŻ DOSTAWCÓW</a></li>
                 <li><a href="/addpart">DODAJ CZĘŚĆ</a></li>
-                <li><a href="/supplierlist">POKAŻ CZĘŚCI</a></li>
+                <li class="active"><a href="/partlist">POKAŻ CZĘŚCI</a></li>
             </ul>
         </div>
     </nav>
 
 </div>
 <div class="container">
-    <div th:if="${not #lists.isEmpty(suppliers)}">
+    <div th:if="${not #lists.isEmpty(parts)}">
         <table class="table table-stripped">
             <tr>
                 <th>Id</th>
                 <th>Nazwa</th>
-                <th>Nazwa cd</th>
-                <th>NIP</th>
-                <th>Adres</th>
-                <th>Kod</th>
-                <th>Miasto</th>
-                <th>Kraj</th>
-                <th>Osoba kontaktowa</th>
-                <th>Email</th>
-                <th>Telefon</th>
+                <th>Nr kat.</th>
+                <th>Opis</th>
+                <th>j.m.</th>
+                <th>Ilość</th>
+                <th>Cena j.</th>
+                <th>Kurs</th>
+                <th>Cena netto</th>
+                <th>Rabat</th>
+                <th>Wartość</th>
             </tr>
-            <tr th:each="supplierForm : ${suppliers}">
-                <td th:text="${supplierForm.id}"></td>
-                <td th:text="${supplierForm.name}"></td>
-                <td th:text="${supplierForm.name2}"></td>
-                <td th:text="${supplierForm.taxIdNumber}"></td>
-                <td th:text="${supplierForm.address}"></td>
-                <td th:text="${supplierForm.zipCode}"></td>
-                <td th:text="${supplierForm.city}"></td>
-                <td th:text="${supplierForm.country}"></td>
-                <td th:text="${supplierForm.contactPerson}"></td>
-                <td th:text="${supplierForm.email}"></td>
-                <td th:text="${supplierForm.phoneNumber}"></td>
+            <tr th:each="partForm : ${parts}">
+                <td th:text="${partForm.id}"></td>
+                <td th:text="${partForm.name}"></td>
+                <td th:text="${partForm.catalogueNumber}"></td>
+                <td th:text="${partForm.description}"></td>
+                <td th:text="${partForm.unit}"></td>
+                <td th:text="${partForm.quantity}"></td>
+                <td th:text="${partForm.pricePerUnit}"></td>
+                <td th:text="${partForm.exchangeRate}"></td>
+                <td th:text="${partForm.nettoValue}"></td>
+                <td th:text="${partForm.discount}"></td>
+                <td th:text="${partForm.partTotalValue}"></td>
 
             </tr>
         </table>

@@ -31,7 +31,7 @@ public class SupplierForm {
     @NotEmpty(message="podaj email")
     @Email(message="podaj poprawny email")
     private String email;
-    @NotEmpty(message="Podaj numer telefonu")
+//    @NotEmpty(message="Podaj numer telefonu")
     private String phoneNumber;
 
     public String getName() {
