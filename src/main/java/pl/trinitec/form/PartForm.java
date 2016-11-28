@@ -8,6 +8,7 @@ import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.beans.factory.annotation.Value;
 
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 public class PartForm {
@@ -26,19 +27,19 @@ public class PartForm {
     @NotEmpty(message="Wpisz nazwę producenta")
     private String unit;
 
-    @NotEmpty(message="Podaj ilość")
+    @NotNull(message="Podaj ilość")
     private BigDecimal quantity;
 
-    @NotEmpty(message="Podaj cenę jednostkową")
+    @NotNull(message="Podaj cenę jednostkową")
     private BigDecimal pricePerUnit;
 
-    @NotEmpty(message="Podaj kurs")
+    @NotNull(message="Podaj kurs")
     private BigDecimal exchangeRate;
 
-    @NotEmpty(message="Podaj cenę netto")
+    @NotNull(message="Podaj cenę netto")
     private BigDecimal nettoValue;
 
-    @NotEmpty(message="Podaj wartość rabatu")
+    @NotNull(message="Podaj wartość rabatu")
     private BigDecimal discount;
 
 
