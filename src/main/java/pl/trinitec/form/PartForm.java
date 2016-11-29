@@ -24,7 +24,7 @@ public class PartForm {
     @NotEmpty(message="Podaj opis części")
     private String description;
 
-    @NotEmpty(message="Wpisz nazwę producenta")
+
     private String unit;
 
     @NotNull(message="Podaj ilość")
@@ -44,8 +44,12 @@ public class PartForm {
 
 
     private BigDecimal partTotalValue;
-
-
+    
+    @NotNull
+    private Long supplierId;
+    
+    
+    
 
     public String getName() {
         return name;
@@ -128,7 +132,14 @@ public class PartForm {
         this.partTotalValue = partTotalValue;
     }
 
+    public Long getSupplierId() {
+        return supplierId;
+    }
 
+    public void setSupplierId(Long supplierId) {
+        this.supplierId = supplierId;
+    }
+    
     @Override
 public String toString(){
     return String.format(
@@ -137,3 +148,4 @@ public String toString(){
     }
 
 }
+// TODO: 29.11.16 dodac toString dla supplierId 

@@ -54,19 +54,21 @@
                 <th>Cena netto</th>
                 <th>Rabat</th>
                 <th>Wartość</th>
+                <th>Dostawca</th>
             </tr>
-            <tr th:each="partForm : ${parts}">
-                <td th:text="${partForm.id}"></td>
-                <td th:text="${partForm.name}"></td>
-                <td th:text="${partForm.catalogueNumber}"></td>
-                <td th:text="${partForm.description}"></td>
-                <td th:text="${partForm.unit}"></td>
-                <td th:text="${partForm.quantity}"></td>
-                <td th:text="${partForm.pricePerUnit}"></td>
-                <td th:text="${partForm.exchangeRate}"></td>
-                <td th:text="${partForm.nettoValue}"></td>
-                <td th:text="${partForm.discount}"></td>
-                <td th:text="${partForm.partTotalValue}"></td>
+            <tr th:each="part : ${parts}">
+                <td th:text="${part.id}"></td>
+                <td th:text="${part.name}"></td>
+                <td th:text="${part.catalogueNumber}"></td>
+                <td th:text="${part.description}"></td>
+                <td th:text="${part.unit}"></td>
+                <td th:text="${part.quantity}"></td>
+                <td th:text="${part.pricePerUnit}"></td>
+                <td th:text="${part.exchangeRate}"></td>
+                <td th:text="${part.nettoValue}"></td>
+                <td th:text="${part.discount}"></td>
+                <td th:text="${part.partTotalValue}"></td>
+                <td th:text="${part.supplier!=null} ? ${part.supplier.name} : 'not specified'"></td>
 
             </tr>
         </table>

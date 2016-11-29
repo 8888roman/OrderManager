@@ -4,10 +4,7 @@ package pl.trinitec.domain;
  * Created by AN-KOP on 2016-11-19.
  */
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -17,9 +14,15 @@ public class Part {
 
 
 
+
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
+
+
+
+    @ManyToOne
+    private Supplier supplier;
 
     private Long projectId;
 
@@ -48,7 +51,7 @@ public class Part {
     protected Part() {}
 
     public Part(String name, String catalogueNumber, String description, String unit, BigDecimal quantity, BigDecimal pricePerUnit,
-                BigDecimal exchangeRate, BigDecimal nettoValue, BigDecimal discount, BigDecimal partTotalValue ) {
+                BigDecimal exchangeRate, BigDecimal nettoValue, BigDecimal discount, BigDecimal partTotalValue, Supplier supplier ) {
         this.name = name;
         this.catalogueNumber = catalogueNumber;
         this.description = description;
@@ -59,6 +62,7 @@ public class Part {
         this.nettoValue = nettoValue;
         this.discount = discount;
         this.partTotalValue = partTotalValue;
+        this.supplier= supplier;
 
 
     }
@@ -70,6 +74,14 @@ public class Part {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Supplier getSupplier() {
+        return supplier;
+    }
+
+    public void setSupplier(Supplier supplier) {
+        this.supplier = supplier;
     }
 
     public Long getProjectId() {
@@ -177,5 +189,6 @@ public class Part {
                 "Part[id=%d, projectId=%d, orderId=%d, name='%s', catalogueNumber='%s',description='%s',unit='%s', quantity='%d',pricePerUnit='%d',exchangeRate='%d',nettoValue='%d',discount='%d',partTotalValue='%d']",
                 id, projectId, orderId, name, catalogueNumber, description, unit, quantity, pricePerUnit, exchangeRate, nettoValue, discount, partTotalValue );
     }
+
 
 }

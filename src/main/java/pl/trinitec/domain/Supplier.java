@@ -9,6 +9,7 @@ package pl.trinitec.domain;
         import javax.persistence.*;
         import javax.validation.constraints.Min;
         import javax.validation.constraints.Size;
+        import java.util.List;
 
 
 @Entity
@@ -16,8 +17,12 @@ public class Supplier {
 
 
     @Id
+    @Column(name = "ID")
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
+
+    @OneToMany(mappedBy="supplier")
+    private List<Part> parts;
 
     private String name;
 

@@ -12,7 +12,7 @@
 
     <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
             th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
-
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 </head>
 
@@ -69,14 +69,26 @@
 
     <div class="row">
 
-        <div class="col-sm-12">
+        <div class="col-sm-9">
             <div class="form-group">
                 <label for="description">Opis:</label>
                 <input type="text" class="form-control" th:field="*{description}" placeholder="np. Przekaźnik 24V 10A" id="description"/>
                 <td th:if="${#fields.hasErrors('description')}" th:errors="*{description}">Title error message</td>
             </div>
         </div>
+        <div class="col-sm-3">
 
+            <div class="form-group">
+
+                <label for="supplier">Opis:</label>
+                <select class="form-control" name="supplierId" id="supplier">
+                    <option></option>
+                    <option  th:each="supplier : ${suppliers}" th:text="${supplier.name}" th:value="${supplier.id}"></option>
+
+
+                </select>
+            </div>
+        </div>
 
 
     </div>
@@ -100,14 +112,14 @@
             <div class="col-sm-3">
 
                 <label for="unit">j.m. </label>
-                <select class="form-control" th:value="*{unit}" id="unit">
-                    <option>szt.</option>
-                    <option>kpl.</option>
-                    <option>op.</option>
-                    <option>m</option>
-                    <option>mb</option>
-                    <option>km</option>
-                    <option>godz.</option>
+                <select class="form-control" name="unit" id="unit">
+                    <option value="szt.">szt.</option>
+                    <option value="kpl.">kpl.</option>
+                    <option value="op.">op.</option>
+                    <option value="m">m</option>
+                    <option value="mb">mb</option>
+                    <option value="km">km</option>
+                    <option value="godz.">godz.</option>
                 </select>
             </div>
             <div class="col-sm-3">
