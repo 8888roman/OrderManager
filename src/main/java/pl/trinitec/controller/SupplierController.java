@@ -2,6 +2,7 @@ package pl.trinitec.controller;
 
 
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
@@ -63,6 +64,12 @@ public class SupplierController{
         model.addAttribute("suppliers", supplierRepository.findAll());
         return "supplierlist";
     }
+    @RequestMapping(value= "/editsupplier/{id}", method=RequestMethod.GET)
+    public String editSupplier(SupplierForm supplierForm, @PathVariable("id") Long id, Model model) {
+        model.addAttribute("supplier", supplierRepository.findOne(id));
+        return "editsupplier";
+    }
+
 
     @Configuration
     @EnableWebMvc
