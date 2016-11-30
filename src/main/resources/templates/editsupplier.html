@@ -58,7 +58,7 @@
             <div class="col-sm-6">
                 <div class="form-group">
                     <label for="name2">Nazwa cd:</label>
-                    <input type="text" class="form-control" th:field="*{name2}" placeholder="producent sterowników PLC" id="name2"/>
+                    <input type="text" class="form-control" th:value="${supplier.name2}"  id="name2"/>
                     <td th:if="${#fields.hasErrors('name2')}" th:errors="*{name2}">Title error message</td>
                 </div>
             </div>
@@ -72,14 +72,14 @@
         <div class="col-sm-6">
             <div class="form-group">
                 <label for="taxIdNumber">NIP:</label>
-                <input type="text" class="form-control" th:field="*{taxIdNumber}" placeholder="123-456-78-90" id="taxIdNumber"/>
+                <input type="text" class="form-control" th:value="${supplier.taxIdNumber}"  id="taxIdNumber"/>
                 <td th:if="${#fields.hasErrors('taxIdNumber')}" th:errors="*{taxIdNumber}">Title error message</td>
             </div>
         </div>
         <div class="col-sm-6">
             <div class="form-group">
                 <label for="address">Adres:</label>
-                <input type="text" class="form-control" th:field="*{address}" placeholder="Aleje Jerozolimskie" id="address"/>
+                <input type="text" class="form-control" th:value="${supplier.address}"  id="address"/>
                 <td th:if="${#fields.hasErrors('address')}" th:errors="*{address}">Title error message</td>
             </div>
         </div>
@@ -92,21 +92,21 @@
         <div class="col-sm-4">
             <div class="form-group">
                 <label for="zipCode">Kod pocztowy:</label>
-                <input type="text" class="form-control" th:field="*{zipCode}" placeholder="xx-xxx" id="zipCode"/>
+                <input type="text" class="form-control" th:value="${supplier.zipCode}"  id="zipCode"/>
                 <td th:if="${#fields.hasErrors('zipCode')}" th:errors="*{zipCode}">Title error message</td>
             </div>
         </div>
         <div class="col-sm-4">
             <div class="form-group">
                 <label for="city">Miasto:</label>
-                <input type="text" class="form-control" th:field="*{city}" placeholder="Warszawa" id="city"/>
+                <input type="text" class="form-control" th:value="${supplier.city}"  id="city"/>
                 <td th:if="${#fields.hasErrors('city')}" th:errors="*{city}">Title error message</td>
             </div>
         </div>
         <div class="col-sm-4">
             <div class="form-group">
                 <label for="country">Kraj:</label>
-                <input type="text" class="form-control" th:field="*{country}" placeholder="Polska" id="country"/>
+                <input type="text" class="form-control" th:value="${supplier.country}"  id="country"/>
                 <td th:if="${#fields.hasErrors('country')}" th:errors="*{country}">Title error message</td>
             </div>
         </div>
@@ -117,21 +117,21 @@
         <div class="col-sm-4">
             <div class="form-group">
                 <label for="contactPerson">Osoba kontaktowa:</label>
-                <input type="text" class="form-control" th:field="*{contactPerson}" placeholder="Jan Kowalski" id="contactPerson"/>
+                <input type="text" class="form-control" th:value="${supplier.contactPerson}"  id="contactPerson"/>
                 <td th:if="${#fields.hasErrors('contactPerson')}" th:errors="*{contactPerson}">Title error message</td>
             </div>
         </div>
         <div class="col-sm-4">
             <div class="form-group">
                 <label for="email">E-mail:</label>
-                <input type="text" class="form-control" th:field="*{email}" placeholder="jan.kowalski@trinitec.pl" id="email"/>
+                <input type="text" class="form-control" th:value="${supplier.email}"  id="email"/>
                 <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Title error message</td>
             </div>
         </div>
         <div class="col-sm-4">
             <div class="form-group">
                 <label for="phoneNumber">Telefon:</label>
-                <input type="text" class="form-control" th:field="*{phoneNumber}" placeholder="+48 123-456-789" id="phoneNumber"/>
+                <input type="text" class="form-control" th:value="${supplier.phoneNumber}"  id="phoneNumber"/>
                 <td th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}">Title error message</td>
             </div>
         </div>
