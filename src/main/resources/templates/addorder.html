@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Order Manager</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> </meta>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.4/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen" />
+
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
+            th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <style>
+        .errors{
+            color:red;
+        }
+    </style>
+
+</head>
+
+<body>
+<div class="container">
+    <div class="jumbotron text-center">
+        <img src="http://www.trinitec.pl/wp-content/uploads/2016/03/logo.png" class="img-rounded"/>
+    </div>
+</div>
+<div class="container">
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="/addsupplier">DODAJ DOSTAWCĘ</a></li>
+                <li><a href="/supplierlist">POKAŻ DOSTAWCÓW</a></li>
+                <li class="active"><a href="/addpart">DODAJ CZĘŚĆ</a></li>
+                <li><a href="/partlist">POKAŻ CZĘŚCI</a></li>
+            </ul>
+        </div>
+    </nav>
+
+</div>
+<div class="container">
+<form action="#" th:action="@{/addpart}" th:object="${partForm}" method="post">
+
+    <div class="well">
+
+    <div class="row">
+
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="name">Nazwa:</label>
+                    <input type="text" class="form-control" th:field="*{name}" placeholder="Przekaźnik" id="name"/>
+                    <div class = "errors" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Title error message</div>
+                </div>
+
+
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="catalogueNumber">Numer katalogowy:</label>
+                    <input type="text" class="form-control" th:field="*{catalogueNumber}" placeholder="np. G-1234" id="catalogueNumber"/>
+                    <div class = "errors" th:if="${#fields.hasErrors('catalogueNumber')}" th:errors="*{catalogueNumber}">Title error message</div>
+                </div>
+            </div>
+
+
+    </div>
+
+
+    <div class="row">
+
+        <div class="col-sm-9">
+            <div class="form-group">
+                <label for="description">Opis:</label>
+                <input type="text" class="form-control" th:field="*{description}" placeholder="np. Przekaźnik 24V 10A" id="description"/>
+                <div class = "errors" th:if="${#fields.hasErrors('description')}" th:errors="*{description}">Title error message</div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+
+            <div class="form-group">
+
+                <label for="supplier">Dostawca:</label>
+                <select class="form-control" name="supplierId" id="supplier">
+                    <option></option>
+                    <option  th:each="supplier : ${suppliers}" th:text="${supplier.name}" th:value="${supplier.id}"></option>
+
+
+                </select>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="row">
+
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label for="quantity">Ilość:</label>
+                    <input type="text" class="form-control" th:field="*{quantity}" placeholder="1" id="quantity"/>
+                    <div class = "errors" th:if="${#fields.hasErrors('quantity')}" th:errors="*{quantity}">Title error message</div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label for="pricePerUnit">Cena jednostkowa:</label>
+                    <input type="text" class="form-control" th:field="*{pricePerUnit}"  id="pricePerUnit"/>
+                    <div class = "errors" th:if="${#fields.hasErrors('pricePerUnit')}" th:errors="*{pricePerUnit}">Title error message</div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+
+                <label for="unit">j.m. </label>
+                <select class="form-control" name="unit" id="unit">
+                    <option value="szt.">szt.</option>
+                    <option value="kpl.">kpl.</option>
+                    <option value="op.">op.</option>
+                    <option value="m">m</option>
+                    <option value="mb">mb</option>
+                    <option value="km">km</option>
+                    <option value="godz.">godz.</option>
+                </select>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label for="exchangeRate">Kurs:</label>
+                    <input type="text" class="form-control" th:field="*{exchangeRate}"  id="exchangeRate"/>
+                    <div class = "errors" th:if="${#fields.hasErrors('exchangeRate')}" th:errors="*{exchangeRate}">Title error message</div>
+                </div>
+            </div>
+
+    </div>
+
+    <div class="row">
+
+
+
+
+    </div>
+
+    <div class="row">
+
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label for="nettoValue">Wartość netto:</label>
+                    <input type="text" class="form-control" th:field="*{nettoValue}"  id="nettoValue"/>
+                    <div class = "errors" th:if="${#fields.hasErrors('nettoValue')}" th:errors="*{nettoValue}">Title error message</div>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label for="discount">Rabat:</label>
+                    <input type="text" class="form-control" th:field="*{discount}"  id="discount"/>
+                    <div class = "errors" th:if="${#fields.hasErrors('discount')}" th:errors="*{discount}">Title error message</div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label for="partTotalValue">Wartość pozycji:</label>
+                    <input type="text" class="form-control" th:field="*{partTotalValue}"  id="partTotalValue"/>
+                    <div class = "errors" th:if="${#fields.hasErrors('partTotalValue')}" th:errors="*{partTotalValue}">Title error message</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+
+                </div>
+
+                <div class="col-sm-4">
+                    <button type="submit" class="btn btn-success btn-block">ZAPISZ</button>
+                </div>
+            </div>
+
+     </div>
+
+    </div>
+</form>
+<!--guzik wstecz-->
+<a href="/" class="btn btn-default btn-lg">
+    <span class="glyphicon glyphicon-chevron-left"></span> Wstecz
+</a>
+
+</div>
+</body>
+</html>

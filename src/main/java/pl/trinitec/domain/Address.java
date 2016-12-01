@@ -19,7 +19,7 @@ public class Address {
     private Long id;
 
     @OneToMany(mappedBy="supplier")
-    private List<Order> orders;
+    private List<PartOrder> partOrders;
 
     private String name;
 

@@ -25,7 +25,7 @@ public class Supplier {
     private List<Part> parts;
 
     @OneToMany(mappedBy="supplier")
-    private List<Order> orders;
+    private List<PartOrder> partOrders;
 
     private String name;
 

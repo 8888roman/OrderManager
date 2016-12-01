@@ -21,15 +21,15 @@ public class Project {
     private Long id;
 
     @OneToMany(mappedBy="project")
-    private List<Order> orders;
+    private List<PartOrder> partOrder;
 
     private BigDecimal projectValue;
 
 
     protected Project() {}
 
-    public Project(List<Order> orders, BigDecimal projectValue) {
-        this.orders = orders;
+    public Project(List<PartOrder> partOrder, BigDecimal projectValue) {
+        this.partOrder = partOrder;
         this.projectValue = projectValue;
     }
 
@@ -41,12 +41,12 @@ public class Project {
         this.id = id;
     }
 
-    public List<Order> getOrders() {
-        return orders;
+    public List<PartOrder> getpartOrder() {
+        return partOrder;
     }
 
-    public void setOrders(List<Order> orders) {
-        this.orders = orders;
+    public void setpartOrder(List<PartOrder> partOrder) {
+        this.partOrder = partOrder;
     }
 
     public BigDecimal getProjectValue() {
@@ -61,7 +61,7 @@ public class Project {
     public String toString() {
         return "Project{" +
                 "id=" + id +
-                ", orders=" + orders +
+                ", orders=" + partOrder +
                 ", projectValue=" + projectValue +
                 '}';
     }

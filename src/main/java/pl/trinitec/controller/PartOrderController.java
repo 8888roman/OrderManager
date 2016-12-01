@@ -1,0 +1,79 @@
+package pl.trinitec.controller;
+
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import pl.trinitec.domain.Part;
+import pl.trinitec.domain.Supplier;
+import pl.trinitec.form.PartForm;
+import pl.trinitec.repository.PartOrderRepository;
+import pl.trinitec.repository.PartRepository;
+import pl.trinitec.repository.SupplierRepository;
+
+import javax.validation.Valid;
+
+/**
+ * Created by AN-KOP on 2016-11-19.
+ */
+@Controller
+public class PartOrderController {
+//todo zmiana pol klasy
+    @Autowired
+    private PartOrderRepository partOrderRepository;
+
+
+    @RequestMapping(value="/addpartorder", method=RequestMethod.GET)
+    public String addpart(PartOrderForm partOrderForm, Model model) {
+        model.addAttribute("suppliers",supplierRepository.findAll());
+        return "addpart";
+    }
+
+
+    @RequestMapping(value = "/addpart", method = RequestMethod.POST)
+    public String addNewPart(@Valid PartForm partForm, BindingResult bindingResult, Model model) {
+        if (bindingResult.hasErrors()) {
+            return "addpart";
+        }
+        Supplier supplier = supplierRepository.findOne(partForm.getSupplierId());
+        partRepository.save(new Part(partForm.getName(),
+                                     partForm.getCatalogueNumber(),
+                                     partForm.getDescription(),
+                                     partForm.getUnit(),
+                                     partForm.getQuantity(),
+                                     partForm.getPricePerUnit(),
+                                     partForm.getExchangeRate(),
+                                     partForm.getNettoValue(),
+                                     partForm.getDiscount(),
+                                     partForm.getPartTotalValue(),
+                                                supplier) );
+//                model.addAttribute("parts", partRepository.findAll());    nic nie robi!!!!
+        return "redirect:partlist";
+    }
+
+    @RequestMapping(value = "/partlist", method = RequestMethod.GET)
+    public String showAllParts(Model model) {
+        model.addAttribute("parts", partRepository.findAll());
+        return "partlist";
+    }
+
+    @Configuration
+    @EnableWebMvc
+    public class WebConfig extends WebMvcConfigurerAdapter {
+
+        @Override
+        public void addResourceHandlers(ResourceHandlerRegistry registry) {
+            registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
+        }
+    }
+
+
+
+}

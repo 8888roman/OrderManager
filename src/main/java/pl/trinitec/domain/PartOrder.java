@@ -7,11 +7,10 @@ package pl.trinitec.domain;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.List;
 
 
 @Entity
-public class Order {
+public class PartOrder {
 
 
 
@@ -58,12 +57,12 @@ public class Order {
 
 
 
-    protected Order() {}
+    protected PartOrder() {}
 
 
-    public Order(Supplier supplier, Address address, String orderNumber, Date orderPlaceDate, Date orderCompletionDate,
-                 Date orderDeliveryDate, Boolean orderDelivered, String paymentMethod, String deliveryConditions, String currency,
-                 String createdBy, String comments, BigDecimal totalValue, Project project) {
+    public PartOrder(Supplier supplier, Address address, String orderNumber, Date orderPlaceDate, Date orderCompletionDate,
+                     Date orderDeliveryDate, Boolean orderDelivered, String paymentMethod, String deliveryConditions, String currency,
+                     String createdBy, String comments, BigDecimal totalValue, Project project) {
         this.supplier = supplier;
         this.deliveryAddress = address;
         this.orderNumber = orderNumber;
