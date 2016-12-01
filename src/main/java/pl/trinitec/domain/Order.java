@@ -21,11 +21,13 @@ public class Order {
     private Long id;
 
     @ManyToOne
+    private Project project;
+
+    @ManyToOne
     private Supplier supplier;
 
-    private List<Part> parts;
-
-    private List<Address> deliveryAddress;
+    @ManyToOne
+    private Address deliveryAddress;
 
     private String orderNumber;
 
@@ -59,11 +61,10 @@ public class Order {
     protected Order() {}
 
 
-    public Order(Supplier supplier, List<Part> parts, List<Address> address, String orderNumber, Date orderPlaceDate, Date orderCompletionDate,
+    public Order(Supplier supplier, Address address, String orderNumber, Date orderPlaceDate, Date orderCompletionDate,
                  Date orderDeliveryDate, Boolean orderDelivered, String paymentMethod, String deliveryConditions, String currency,
-                 String createdBy, String comments, BigDecimal totalValue) {
+                 String createdBy, String comments, BigDecimal totalValue, Project project) {
         this.supplier = supplier;
-        this.parts = parts;
         this.deliveryAddress = address;
         this.orderNumber = orderNumber;
         this.orderPlaceDate = orderPlaceDate;
@@ -76,6 +77,7 @@ public class Order {
         this.createdBy = createdBy;
         this.comments = comments;
         this.totalValue = totalValue;
+        this.project = project;
     }
 
     public Long getId() {
@@ -94,22 +96,23 @@ public class Order {
         this.supplier = supplier;
     }
 
-    public List<Part> getParts() {
-        return parts;
-    }
 
-    public void setParts(List<Part> parts) {
-        this.parts = parts;
-    }
-
-    public List<Address> getDeliveryAddress() {
+    public Address getDeliveryAddress() {
         return deliveryAddress;
     }
 
-    public void setDeliveryAddress(List<Address> deliveryAddress) {
+    public void setDeliveryAddress(Address deliveryAddress) {
         this.deliveryAddress = deliveryAddress;
     }
 
+
+    public Project getProject() {
+        return project;
+    }
+
+    public void setProject(Project  project) {
+        this.project = project;
+    }
 
     public String getOrderNumber() {
         return orderNumber;
@@ -204,8 +207,8 @@ public class Order {
     public String toString() {
         return "Order{" +
                 "id=" + id +
+                ", project=" + project +
                 ", supplier=" + supplier +
-                ", parts=" + parts +
                 ", deliveryAddress=" + deliveryAddress +
                 ", orderNumber='" + orderNumber + '\'' +
                 ", orderPlaceDate=" + orderPlaceDate +

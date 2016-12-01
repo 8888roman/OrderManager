@@ -24,6 +24,9 @@ public class Supplier {
     @OneToMany(mappedBy="supplier")
     private List<Part> parts;
 
+    @OneToMany(mappedBy="supplier")
+    private List<Order> orders;
+
     private String name;
 
     private String name2;

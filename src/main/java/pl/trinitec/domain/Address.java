@@ -18,6 +18,8 @@ public class Address {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
 
+    @OneToMany(mappedBy="supplier")
+    private List<Order> orders;
 
     private String name;
 

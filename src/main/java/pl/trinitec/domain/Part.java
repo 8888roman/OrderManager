@@ -24,6 +24,9 @@ public class Part {
     @ManyToOne
     private Supplier supplier;
 
+//    @ManyToOne
+//    private Order order;
+
     private Long projectId;
 
     private Long orderId;
@@ -63,6 +66,7 @@ public class Part {
         this.discount = discount;
         this.partTotalValue = partTotalValue;
         this.supplier= supplier;
+//        this.order = order;
 
 
     }
@@ -83,6 +87,14 @@ public class Part {
     public void setSupplier(Supplier supplier) {
         this.supplier = supplier;
     }
+
+//    public Order getOrder() {
+//        return order;
+//    }
+//
+//    public void setOrder(Order order) {
+//        this.order = order;
+//    }
 
     public Long getProjectId() {
         return projectId;
