@@ -78,9 +78,9 @@
         </div>
         <div class="col-sm-6">
             <div class="form-group">
-                <label for="deliveryAddress">Adres:</label>
-                <input type="text" class="form-control" th:value="${supplier.deliveryAddress}"  id="deliveryAddress"/>
-                <td th:if="${#fields.hasErrors('deliveryAddress')}" th:errors="*{deliveryAddress}">Title error message</td>
+                <label for="address">Adres:</label>
+                <input type="text" class="form-control" th:value="${supplier.address}"  id="address"/>
+                <td th:if="${#fields.hasErrors('address')}" th:errors="*{address}">Title error message</td>
             </div>
         </div>
 
