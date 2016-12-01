@@ -78,7 +78,7 @@ public class SupplierController{
 //        supplierRepository.save(new Supplier(supplierForm.getName(),
 //                                             supplierForm.getName2(),
 //                                             supplierForm.getTaxIdNumber(),
-//                                             supplierForm.getAddress(),
+//                                             supplierForm.getDeliveryAddress(),
 //                                             supplierForm.getZipCode(),
 //                                             supplierForm.getCity(),
 //                                             supplierForm.getCountry(),
