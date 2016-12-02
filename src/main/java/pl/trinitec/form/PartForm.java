@@ -7,6 +7,8 @@ package pl.trinitec.form;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.beans.factory.annotation.Value;
+import pl.trinitec.domain.PartOrder;
+import pl.trinitec.domain.Supplier;
 
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
@@ -14,6 +16,9 @@ import java.math.BigDecimal;
 public class PartForm {
 
 
+    private Supplier supplier;
+
+    private PartOrder partOrder;
 
     @NotEmpty(message="Wpisz nazwę części")
     private String name;
@@ -47,9 +52,23 @@ public class PartForm {
     
     @NotNull
     private Long supplierId;
-    
-    
-    
+
+
+    public Supplier getSupplier() {
+        return supplier;
+    }
+
+    public void setSupplier(Supplier supplier) {
+        this.supplier = supplier;
+    }
+
+    public PartOrder getPartOrder() {
+        return partOrder;
+    }
+
+    public void setPartOrder(PartOrder partOrder) {
+        this.partOrder = partOrder;
+    }
 
     public String getName() {
         return name;
@@ -66,7 +85,6 @@ public class PartForm {
     public void setCatalogueNumber(String catalogueNumber) {
         this.catalogueNumber = catalogueNumber;
     }
-
 
     public String getDescription() {
         return description;
@@ -139,13 +157,24 @@ public class PartForm {
     public void setSupplierId(Long supplierId) {
         this.supplierId = supplierId;
     }
-    
-    @Override
-public String toString(){
-    return String.format(
-            "Part[name='%s', catalogueNumber='%s',description='%s',unit='%s', quantity='%d',pricePerUnit='%d',exchangeRate='%d',nettoValue='%d',discount='%d',partTotalValue='%d']",
-             name, catalogueNumber, description, unit, quantity, pricePerUnit, exchangeRate, nettoValue, discount, partTotalValue );
-    }
 
+    @Override
+    public String toString() {
+        return "PartForm{" +
+                "supplier=" + supplier +
+                ", partOrder=" + partOrder +
+                ", name='" + name + '\'' +
+                ", catalogueNumber='" + catalogueNumber + '\'' +
+                ", description='" + description + '\'' +
+                ", unit='" + unit + '\'' +
+                ", quantity=" + quantity +
+                ", pricePerUnit=" + pricePerUnit +
+                ", exchangeRate=" + exchangeRate +
+                ", nettoValue=" + nettoValue +
+                ", discount=" + discount +
+                ", partTotalValue=" + partTotalValue +
+                ", supplierId=" + supplierId +
+                '}';
+    }
 }
 // TODO: 29.11.16 dodac toString dla supplierId 

@@ -1,56 +1,46 @@
-package pl.trinitec.domain;
+package pl.trinitec.form;
 
 /**
  * Created by AN-KOP on 2016-11-19.
  */
 
-import javax.persistence.*;
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
+
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.List;
+
+public class PartOrderForm {
 
 
-@Entity
-public class PartOrder {
-
-
-
-
-    @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    private Long id;
-
-    @ManyToOne
-    private Project project;
-
-    @ManyToOne
-    private Supplier supplier;
-
-    @ManyToOne
-    private Address deliveryAddress;
-
-    @ManyToMany(mappedBy="partOrders")
-    private List<Part> parts;
-
-    private String orderNumber;
-
-    @Temporal(TemporalType.DATE)
+    @NotEmpty(message="Wybierz numer projektu")
+    private String Project;
+    @NotEmpty(message="Wybierz dostawcę")
+    private String supplier;
+    @NotEmpty(message="Wybierz adres dostawy") //todo sting czy obiekt??? orderNumber
+    private String deliveryAddress;
+    @NotEmpty(message="Wpisz numer zamówienia")
+    private Long orderNumber;
+    @Temporal(TemporalType.DATE)@NotNull(message = "Podaj datę złożenia zamówienia")
     private Date orderPlaceDate;
 
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.DATE)@NotNull(message = "Podaj datę realizacji zamówienia")
     private Date orderCompletionDate;
 
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.DATE)@NotNull(message = "Podaj datę dostarczenia zamówienia")
     private Date orderDeliveryDate;
 
     private Boolean orderDelivered;
-
+    @NotEmpty(message = "Wybierz metodę płatności")
     private String paymentMethod;
-
+    @NotEmpty(message = "Wybierz sposób dostawy")
     private String deliveryConditions;
-
+    @NotEmpty(message = "Wybierz walutę")
     private String currency;
-
+    @NotEmpty(message = "Wybierz składającego zamówienie")
     private String createdBy;
 
     private String comments;
@@ -58,74 +48,35 @@ public class PartOrder {
     private BigDecimal totalValue;
 
 
-
-
-
-    protected PartOrder() {}
-
-    public PartOrder(Project project, Supplier supplier, Address deliveryAddress, List<Part> parts, String orderNumber, Date orderPlaceDate, Date orderCompletionDate, Date orderDeliveryDate, Boolean orderDelivered, String paymentMethod, String deliveryConditions, String currency, String createdBy, String comments, BigDecimal totalValue) {
-        this.project = project;
-        this.supplier = supplier;
-        this.deliveryAddress = deliveryAddress;
-        this.parts = parts;
-        this.orderNumber = orderNumber;
-        this.orderPlaceDate = orderPlaceDate;
-        this.orderCompletionDate = orderCompletionDate;
-        this.orderDeliveryDate = orderDeliveryDate;
-        this.orderDelivered = orderDelivered;
-        this.paymentMethod = paymentMethod;
-        this.deliveryConditions = deliveryConditions;
-        this.currency = currency;
-        this.createdBy = createdBy;
-        this.comments = comments;
-        this.totalValue = totalValue;
+    public String getProject() {
+        return Project;
     }
 
-    public Long getId() {
-        return id;
+    public void setProject(String project) {
+        Project = project;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Project getProject() {
-        return project;
-    }
-
-    public void setProject(Project project) {
-        this.project = project;
-    }
-
-    public Supplier getSupplier() {
+    public String getSupplier() {
         return supplier;
     }
 
-    public void setSupplier(Supplier supplier) {
+    public void setSupplier(String supplier) {
         this.supplier = supplier;
     }
 
-    public Address getDeliveryAddress() {
+    public String getDeliveryAddress() {
         return deliveryAddress;
     }
 
-    public void setDeliveryAddress(Address deliveryAddress) {
+    public void setDeliveryAddress(String deliveryAddress) {
         this.deliveryAddress = deliveryAddress;
     }
 
-    public List<Part> getParts() {
-        return parts;
-    }
-
-    public void setParts(List<Part> parts) {
-        this.parts = parts;
-    }
-
-    public String getOrderNumber() {
+    public Long getOrderNumber() {
         return orderNumber;
     }
 
-    public void setOrderNumber(String orderNumber) {
+    public void setOrderNumber(Long orderNumber) {
         this.orderNumber = orderNumber;
     }
 
@@ -211,12 +162,10 @@ public class PartOrder {
 
     @Override
     public String toString() {
-        return "PartOrder{" +
-                "id=" + id +
-                ", project=" + project +
-                ", supplier=" + supplier +
-                ", deliveryAddress=" + deliveryAddress +
-                ", parts=" + parts +
+        return "PartOrderForm{" +
+                "Project='" + Project + '\'' +
+                ", supplier='" + supplier + '\'' +
+                ", deliveryAddress='" + deliveryAddress + '\'' +
                 ", orderNumber='" + orderNumber + '\'' +
                 ", orderPlaceDate=" + orderPlaceDate +
                 ", orderCompletionDate=" + orderCompletionDate +
@@ -230,4 +179,6 @@ public class PartOrder {
                 ", totalValue=" + totalValue +
                 '}';
     }
+
+
 }

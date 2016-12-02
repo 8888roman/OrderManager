@@ -28,6 +28,7 @@ public class Project {
 
     protected Project() {}
 
+
     public Project(List<PartOrder> partOrder, BigDecimal projectValue) {
         this.partOrder = partOrder;
         this.projectValue = projectValue;
@@ -41,11 +42,11 @@ public class Project {
         this.id = id;
     }
 
-    public List<PartOrder> getpartOrder() {
+    public List<PartOrder> getPartOrder() {
         return partOrder;
     }
 
-    public void setpartOrder(List<PartOrder> partOrder) {
+    public void setPartOrder(List<PartOrder> partOrder) {
         this.partOrder = partOrder;
     }
 
@@ -61,7 +62,7 @@ public class Project {
     public String toString() {
         return "Project{" +
                 "id=" + id +
-                ", orders=" + partOrder +
+                ", partOrder=" + partOrder +
                 ", projectValue=" + projectValue +
                 '}';
     }

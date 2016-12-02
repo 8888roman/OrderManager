@@ -12,7 +12,7 @@ import javax.validation.constraints.Min;
 
 public class SupplierForm {
 
-//    @Min(3)
+
     @NotEmpty(message="Wpisz nazwę dostawcy")
     private String name;
     private String name2;
@@ -31,8 +31,10 @@ public class SupplierForm {
     @NotEmpty(message="podaj email")
     @Email(message="podaj poprawny email")
     private String email;
-//    @NotEmpty(message="Podaj numer telefonu")
+
     private String phoneNumber;
+
+
 
     public String getName() {
         return name;
@@ -115,18 +117,19 @@ public class SupplierForm {
     }
 
 
-
-
-@Override
-public String toString(){
-    return String.format(
-            "Supplier[name='%s', name2='%s',taxIdNumber='%s',address='%s',zipCode='%s',city='%s',country='%s',contactPerson='%s', email='%s', phoneNumber='%s']",
-             name, name2, taxIdNumber, address, zipCode, city, country, contactPerson, email, phoneNumber  );
-}
-
-
-
-
-
-    //dodac toString
+    @Override
+    public String toString() {
+        return "SupplierForm{" +
+                "name='" + name + '\'' +
+                ", name2='" + name2 + '\'' +
+                ", taxIdNumber='" + taxIdNumber + '\'' +
+                ", address='" + address + '\'' +
+                ", zipCode='" + zipCode + '\'' +
+                ", city='" + city + '\'' +
+                ", country='" + country + '\'' +
+                ", contactPerson='" + contactPerson + '\'' +
+                ", email='" + email + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                '}';
+    }
 }

@@ -152,14 +152,22 @@ public class Supplier {
     }
 
 
-
-
-
     @Override
     public String toString() {
-        return String.format(
-                "Supplier[id=%d, name='%s', name2='%s',taxIdNumber='%s',address='%s',zipCode='%s',city='%s',country='%s',contactPerson='%s', email='%s', phoneNumber='%s']",
-                id, name, name2, taxIdNumber, address, zipCode, city, country, contactPerson, email, phoneNumber  );
+        return "Supplier{" +
+                "id=" + id +
+                ", parts=" + parts +
+                ", partOrders=" + partOrders +
+                ", name='" + name + '\'' +
+                ", name2='" + name2 + '\'' +
+                ", taxIdNumber='" + taxIdNumber + '\'' +
+                ", address='" + address + '\'' +
+                ", zipCode='" + zipCode + '\'' +
+                ", city='" + city + '\'' +
+                ", country='" + country + '\'' +
+                ", contactPerson='" + contactPerson + '\'' +
+                ", email='" + email + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                '}';
     }
-
 }

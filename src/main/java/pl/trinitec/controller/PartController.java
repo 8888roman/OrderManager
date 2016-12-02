@@ -13,9 +13,11 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import pl.trinitec.domain.Part;
 
+import pl.trinitec.domain.PartOrder;
 import pl.trinitec.domain.Supplier;
 import pl.trinitec.form.PartForm;
 
+import pl.trinitec.repository.PartOrderRepository;
 import pl.trinitec.repository.PartRepository;
 import pl.trinitec.repository.SupplierRepository;
 
@@ -34,6 +36,8 @@ public class PartController {
     private PartRepository partRepository;
     @Autowired
     private SupplierRepository supplierRepository;
+    @Autowired
+    private PartOrderRepository partOrderRepository;
 
     @RequestMapping(value="/addpart", method=RequestMethod.GET)
     public String addpart(PartForm partForm, Model model) {
@@ -47,7 +51,8 @@ public class PartController {
         if (bindingResult.hasErrors()) {
             return "addpart";
         }
-        Supplier supplier = supplierRepository.findOne(partForm.getSupplierId());
+      //  Supplier supplier = supplierRepository.findOne(partForm.getSupplierId());
+        PartOrder partOrder = partOrderRepository.findOne(partForm.getSupplierId());
         partRepository.save(new Part(partForm.getName(),
                                      partForm.getCatalogueNumber(),
                                      partForm.getDescription(),
@@ -58,7 +63,8 @@ public class PartController {
                                      partForm.getNettoValue(),
                                      partForm.getDiscount(),
                                      partForm.getPartTotalValue(),
-                                                supplier) );
+                                                supplier,
+                                        partOrder) );
 //                model.addAttribute("parts", partRepository.findAll());    nic nie robi!!!!
         return "redirect:partlist";
     }

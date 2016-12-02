@@ -24,8 +24,8 @@ public class Part {
     @ManyToOne
     private Supplier supplier;
 
-//    @ManyToOne
-//    private Order order;
+    @ManyToMany(mappedBy = "parts")
+    private List<PartOrder> partOrders;
 
     private Long projectId;
 
@@ -51,10 +51,15 @@ public class Part {
 
     private BigDecimal partTotalValue;
 
+
+
     protected Part() {}
 
-    public Part(String name, String catalogueNumber, String description, String unit, BigDecimal quantity, BigDecimal pricePerUnit,
-                BigDecimal exchangeRate, BigDecimal nettoValue, BigDecimal discount, BigDecimal partTotalValue, Supplier supplier ) {
+    public Part(Supplier supplier, List<PartOrder> partOrders, Long projectId, Long orderId, String name, String catalogueNumber, String description, String unit, BigDecimal quantity, BigDecimal pricePerUnit, BigDecimal exchangeRate, BigDecimal nettoValue, BigDecimal discount, BigDecimal partTotalValue) {
+        this.supplier = supplier;
+        this.partOrders = partOrders;
+        this.projectId = projectId;
+        this.orderId = orderId;
         this.name = name;
         this.catalogueNumber = catalogueNumber;
         this.description = description;
@@ -65,12 +70,7 @@ public class Part {
         this.nettoValue = nettoValue;
         this.discount = discount;
         this.partTotalValue = partTotalValue;
-        this.supplier= supplier;
-//        this.order = order;
-
-
     }
-
 
     public Long getId() {
         return id;
@@ -88,13 +88,13 @@ public class Part {
         this.supplier = supplier;
     }
 
-//    public Order getOrder() {
-//        return order;
-//    }
-//
-//    public void setOrder(Order order) {
-//        this.order = order;
-//    }
+    public List<PartOrder> getPartOrders() {
+        return partOrders;
+    }
+
+    public void setPartOrders(List<PartOrder> partOrders) {
+        this.partOrders = partOrders;
+    }
 
     public Long getProjectId() {
         return projectId;
@@ -141,7 +141,7 @@ public class Part {
     }
 
     public void setUnit(String unit) {
-        this.unit  = unit;
+        this.unit = unit;
     }
 
     public BigDecimal getQuantity() {
@@ -192,15 +192,24 @@ public class Part {
         this.partTotalValue = partTotalValue;
     }
 
-
-
-
     @Override
     public String toString() {
-        return String.format(
-                "Part[id=%d, projectId=%d, orderId=%d, name='%s', catalogueNumber='%s',description='%s',unit='%s', quantity='%d',pricePerUnit='%d',exchangeRate='%d',nettoValue='%d',discount='%d',partTotalValue='%d']",
-                id, projectId, orderId, name, catalogueNumber, description, unit, quantity, pricePerUnit, exchangeRate, nettoValue, discount, partTotalValue );
+        return "Part{" +
+                "id=" + id +
+                ", supplier=" + supplier +
+                ", partOrders=" + partOrders +
+                ", projectId=" + projectId +
+                ", orderId=" + orderId +
+                ", name='" + name + '\'' +
+                ", catalogueNumber='" + catalogueNumber + '\'' +
+                ", description='" + description + '\'' +
+                ", unit='" + unit + '\'' +
+                ", quantity=" + quantity +
+                ", pricePerUnit=" + pricePerUnit +
+                ", exchangeRate=" + exchangeRate +
+                ", nettoValue=" + nettoValue +
+                ", discount=" + discount +
+                ", partTotalValue=" + partTotalValue +
+                '}';
     }
-
-
 }
