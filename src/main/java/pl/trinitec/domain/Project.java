@@ -20,6 +20,8 @@ public class Project {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
 
+    private String projectNumber;
+
     @OneToMany(mappedBy="project")
     private List<PartOrder> partOrder;
 
@@ -29,7 +31,8 @@ public class Project {
     protected Project() {}
 
 
-    public Project(List<PartOrder> partOrder, BigDecimal projectValue) {
+    public Project(String projectNumber, List<PartOrder> partOrder, BigDecimal projectValue) {
+        this.projectNumber = projectNumber;
         this.partOrder = partOrder;
         this.projectValue = projectValue;
     }
@@ -40,6 +43,14 @@ public class Project {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getProjectNumber() {
+        return projectNumber;
+    }
+
+    public void setProjectNumber(String projectNumber) {
+        this.projectNumber = projectNumber;
     }
 
     public List<PartOrder> getPartOrder() {
@@ -62,6 +73,7 @@ public class Project {
     public String toString() {
         return "Project{" +
                 "id=" + id +
+                ", projectNumber='" + projectNumber + '\'' +
                 ", partOrder=" + partOrder +
                 ", projectValue=" + projectValue +
                 '}';

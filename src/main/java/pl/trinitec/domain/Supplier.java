@@ -21,10 +21,8 @@ public class Supplier {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
 
-    @OneToMany(mappedBy="supplier")
-    private List<Part> parts;
 
-    @OneToMany(mappedBy="supplier")
+    @OneToMany(mappedBy="partOrder")
     private List<PartOrder> partOrders;
 
     private String name;
@@ -49,7 +47,9 @@ public class Supplier {
 
     protected Supplier() {}
 
-    public Supplier(String name, String name2, String taxIdNumber, String address,  String zipCode, String city, String country, String contactPerson, String email, String phoneNumber) {
+
+    public Supplier(List<PartOrder> partOrders, String name, String name2, String taxIdNumber, String address, String zipCode, String city, String country, String contactPerson, String email, String phoneNumber) {
+        this.partOrders = partOrders;
         this.name = name;
         this.name2 = name2;
         this.taxIdNumber = taxIdNumber;
@@ -62,6 +62,13 @@ public class Supplier {
         this.phoneNumber = phoneNumber;
     }
 
+    public List<PartOrder> getPartOrders() {
+        return partOrders;
+    }
+
+    public void setPartOrders(List<PartOrder> partOrders) {
+        this.partOrders = partOrders;
+    }
 
     public Long getId() {
         return id;
@@ -156,7 +163,6 @@ public class Supplier {
     public String toString() {
         return "Supplier{" +
                 "id=" + id +
-                ", parts=" + parts +
                 ", partOrders=" + partOrders +
                 ", name='" + name + '\'' +
                 ", name2='" + name2 + '\'' +

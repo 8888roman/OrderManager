@@ -20,10 +20,6 @@ public class Part {
     private Long id;
 
 
-
-    @ManyToOne
-    private Supplier supplier;
-
     @ManyToMany(mappedBy = "parts")
     private List<PartOrder> partOrders;
 
@@ -55,8 +51,8 @@ public class Part {
 
     protected Part() {}
 
-    public Part(Supplier supplier, List<PartOrder> partOrders, Long projectId, Long orderId, String name, String catalogueNumber, String description, String unit, BigDecimal quantity, BigDecimal pricePerUnit, BigDecimal exchangeRate, BigDecimal nettoValue, BigDecimal discount, BigDecimal partTotalValue) {
-        this.supplier = supplier;
+    public Part( List<PartOrder> partOrders, Long projectId, Long orderId, String name, String catalogueNumber, String description, String unit, BigDecimal quantity, BigDecimal pricePerUnit, BigDecimal exchangeRate, BigDecimal nettoValue, BigDecimal discount, BigDecimal partTotalValue) {
+;
         this.partOrders = partOrders;
         this.projectId = projectId;
         this.orderId = orderId;
@@ -80,13 +76,6 @@ public class Part {
         this.id = id;
     }
 
-    public Supplier getSupplier() {
-        return supplier;
-    }
-
-    public void setSupplier(Supplier supplier) {
-        this.supplier = supplier;
-    }
 
     public List<PartOrder> getPartOrders() {
         return partOrders;
@@ -196,7 +185,6 @@ public class Part {
     public String toString() {
         return "Part{" +
                 "id=" + id +
-                ", supplier=" + supplier +
                 ", partOrders=" + partOrders +
                 ", projectId=" + projectId +
                 ", orderId=" + orderId +

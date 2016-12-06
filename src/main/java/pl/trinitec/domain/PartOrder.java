@@ -29,7 +29,7 @@ public class PartOrder {
     @ManyToOne
     private Address deliveryAddress;
 
-    @ManyToMany(mappedBy="partOrders")
+    @ManyToMany
     private List<Part> parts;
 
     private String orderNumber;

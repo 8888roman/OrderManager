@@ -6,8 +6,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import pl.trinitec.domain.PartOrder;
 import pl.trinitec.domain.Supplier;
 import pl.trinitec.form.SupplierForm;
+import pl.trinitec.repository.PartOrderRepository;
 import pl.trinitec.repository.SupplierRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +27,8 @@ public class SupplierController{
 
     @Autowired
     private SupplierRepository supplierRepository;
-
+    @Autowired
+    private PartOrderRepository partOrderRepository;
 
 
 
@@ -45,7 +48,10 @@ public class SupplierController{
         if (bindingResult.hasErrors()) {
             return "addsupplier";
         }
-        supplierRepository.save(new Supplier(supplierForm.getName(),
+
+        PartOrder partOrder = partOrderRepository.findOne();
+        supplierRepository.save(new Supplier(partOrder,
+                                             supplierForm.getName(),
                                              supplierForm.getName2(),
                                              supplierForm.getTaxIdNumber(),
                                              supplierForm.getAddress(),
