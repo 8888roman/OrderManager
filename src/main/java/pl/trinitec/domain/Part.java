@@ -1,8 +1,6 @@
 package pl.trinitec.domain;
 
-/**
- * Created by AN-KOP on 2016-11-19.
- */
+
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -23,8 +21,10 @@ public class Part {
     @JoinTable(name="part_partOrder",
             joinColumns={@JoinColumn(name="partOrder_ID")},
             inverseJoinColumns={@JoinColumn(name="part_ID")})
-    @ManyToMany(mappedBy = "parts")
+    @ManyToMany
     private List<PartOrder> partOrders;
+
+
 
     private String name;
 

@@ -22,7 +22,7 @@ public class Supplier {
     private Long id;
 
 
-    @OneToMany(mappedBy="partOrder")
+    @OneToMany(mappedBy="supplier")
     private List<PartOrder> partOrders;
 
     private String name;
