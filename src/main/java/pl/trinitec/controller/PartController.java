@@ -46,30 +46,29 @@ public class PartController {
     }
 
 
-//    @RequestMapping(value = "/addpart", method = RequestMethod.POST)
-//    public String addNewPart(@Valid PartForm partForm, BindingResult bindingResult, Model model) {
-//        if (bindingResult.hasErrors()) {
-//            return "addpart";
-//        }
-//       Supplier supplier = supplierRepository.findOne(partForm.getSupplierId());
-//        PartOrder partOrder = partOrderRepository.findOne(partForm.getSupplierId());
-//        partRepository.save(new Part(partOrder,
-//                                     partForm.getSupplierId(),
-//                                     partForm.getName(),
-//                                     partForm.getCatalogueNumber(),
-//                                     partForm.getDescription(),
-//                                     partForm.getUnit(),
-//                                     partForm.getQuantity(),
-//                                     partForm.getPricePerUnit(),
-//                                     partForm.getExchangeRate(),
-//                                     partForm.getNettoValue(),
-//                                     partForm.getDiscount(),
-//                                     partForm.getPartTotalValue()
-//
-//                                        ) );
-////                model.addAttribute("parts", partRepository.findAll());    nic nie robi!!!!
-//        return "redirect:partlist";
-//    }
+    @RequestMapping(value = "/addpart", method = RequestMethod.POST)
+    public String addNewPart(@Valid PartForm partForm, BindingResult bindingResult, Model model) {
+        if (bindingResult.hasErrors()) {
+            return "addpart";
+        }
+       Supplier supplier = supplierRepository.findOne(partForm.getSupplierId());
+        PartOrder partOrder = partOrderRepository.findOne(partForm.getSupplierId());
+        partRepository.save(new Part(
+                                     partForm.getName(),
+                                     partForm.getCatalogueNumber(),
+                                     partForm.getDescription(),
+                                     partForm.getUnit(),
+                                     partForm.getQuantity(),
+                                     partForm.getPricePerUnit(),
+                                     partForm.getExchangeRate(),
+                                     partForm.getNettoValue(),
+                                     partForm.getDiscount(),
+                                     partForm.getPartTotalValue()
+
+                                        ) );
+//                model.addAttribute("parts", partRepository.findAll());    nic nie robi!!!!
+        return "redirect:partlist";
+    }
 
     @RequestMapping(value = "/partlist", method = RequestMethod.GET)
     public String showAllParts(Model model) {

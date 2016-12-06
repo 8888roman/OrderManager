@@ -48,8 +48,7 @@ public class Supplier {
     protected Supplier() {}
 
 
-    public Supplier(List<PartOrder> partOrders, String name, String name2, String taxIdNumber, String address, String zipCode, String city, String country, String contactPerson, String email, String phoneNumber) {
-        this.partOrders = partOrders;
+    public Supplier(String name, String name2, String taxIdNumber, String address, String zipCode, String city, String country, String contactPerson, String email, String phoneNumber) {
         this.name = name;
         this.name2 = name2;
         this.taxIdNumber = taxIdNumber;

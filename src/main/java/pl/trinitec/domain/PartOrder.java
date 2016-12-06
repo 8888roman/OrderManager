@@ -18,6 +18,7 @@ public class PartOrder {
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
+    @JoinColumn(name = "partOrder_ID")
     private Long id;
 
     @ManyToOne
@@ -29,7 +30,7 @@ public class PartOrder {
     @ManyToOne
     private Address deliveryAddress;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "partOrders")
     private List<Part> parts;
 
     private String orderNumber;

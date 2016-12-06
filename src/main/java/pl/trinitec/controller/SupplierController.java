@@ -49,9 +49,8 @@ public class SupplierController{
             return "addsupplier";
         }
 
-        PartOrder partOrder = partOrderRepository.findOne();
-        supplierRepository.save(new Supplier(partOrder,
-                                             supplierForm.getName(),
+
+        supplierRepository.save(new Supplier(supplierForm.getName(),
                                              supplierForm.getName2(),
                                              supplierForm.getTaxIdNumber(),
                                              supplierForm.getAddress(),

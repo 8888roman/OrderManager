@@ -17,15 +17,14 @@ public class Part {
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
+    @JoinColumn(name = "part_ID")
     private Long id;
 
-
+    @JoinTable(name="part_partOrder",
+            joinColumns={@JoinColumn(name="partOrder_ID")},
+            inverseJoinColumns={@JoinColumn(name="part_ID")})
     @ManyToMany(mappedBy = "parts")
     private List<PartOrder> partOrders;
-
-    private Long projectId;
-
-    private Long orderId;
 
     private String name;
 
@@ -51,11 +50,10 @@ public class Part {
 
     protected Part() {}
 
-    public Part( List<PartOrder> partOrders, Long projectId, Long orderId, String name, String catalogueNumber, String description, String unit, BigDecimal quantity, BigDecimal pricePerUnit, BigDecimal exchangeRate, BigDecimal nettoValue, BigDecimal discount, BigDecimal partTotalValue) {
-;
-        this.partOrders = partOrders;
-        this.projectId = projectId;
-        this.orderId = orderId;
+    public Part( String name, String catalogueNumber, String description, String unit, BigDecimal quantity, BigDecimal pricePerUnit, BigDecimal exchangeRate, BigDecimal nettoValue, BigDecimal discount, BigDecimal partTotalValue) {
+
+
+
         this.name = name;
         this.catalogueNumber = catalogueNumber;
         this.description = description;
@@ -83,22 +81,6 @@ public class Part {
 
     public void setPartOrders(List<PartOrder> partOrders) {
         this.partOrders = partOrders;
-    }
-
-    public Long getProjectId() {
-        return projectId;
-    }
-
-    public void setProjectId(Long projectId) {
-        this.projectId = projectId;
-    }
-
-    public Long getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(Long orderId) {
-        this.orderId = orderId;
     }
 
     public String getName() {
@@ -186,8 +168,6 @@ public class Part {
         return "Part{" +
                 "id=" + id +
                 ", partOrders=" + partOrders +
-                ", projectId=" + projectId +
-                ", orderId=" + orderId +
                 ", name='" + name + '\'' +
                 ", catalogueNumber='" + catalogueNumber + '\'' +
                 ", description='" + description + '\'' +
