@@ -73,35 +73,20 @@
 
 </div>
 <div class="container">
-    <div th:if="${not #lists.isEmpty(parts)}">
+    <div th:if="${not #lists.isEmpty(addresses)}">
         <table class="table table-stripped">
             <tr>
                 <th>Id</th>
                 <th>Nazwa</th>
-                <th>Nr kat.</th>
-                <th>Opis</th>
-                <th>j.m.</th>
-                <th>Ilość</th>
-                <th>Cena j.</th>
-                <th>Kurs</th>
-                <th>Cena netto</th>
-                <th>Rabat</th>
-                <th>Wartość</th>
-                <th>Dostawca</th>
+                <th>Adres</th>
+                <th>Kontakt</th>
+
             </tr>
-            <tr th:each="part : ${parts}">
-                <td th:text="${part.id}"></td>
-                <td th:text="${part.name}"></td>
-                <td th:text="${part.catalogueNumber}"></td>
-                <td th:text="${part.description}"></td>
-                <td th:text="${part.unit}"></td>
-                <td th:text="${part.quantity}"></td>
-                <td th:text="${part.pricePerUnit}"></td>
-                <td th:text="${part.exchangeRate}"></td>
-                <td th:text="${part.nettoValue}"></td>
-                <td th:text="${part.discount}"></td>
-                <td th:text="${part.partTotalValue}"></td>
-                <td th:text="${part.supplier!=null} ? ${part.supplier.name} : 'not specified'"></td>
+            <tr th:each="address : ${addresses}">
+                <td th:text="${address.id}"></td>
+                <td th:text="${address.name}"></td>
+                <td th:text="${address.place}"></td>
+                <td th:text="${address.contact!=null} ? ${address.contact} : 'not specified'"></td>
 
             </tr>
         </table>

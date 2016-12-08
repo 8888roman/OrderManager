@@ -12,7 +12,13 @@
 
     <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
             th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
+    <style>
+        .errors{
+            color:red;
+        }
+    </style>
 
 </head>
 
@@ -73,7 +79,7 @@
 
 </div>
 <div class="container">
-<form action="#" th:action="@{/}" th:object="${supplierForm}" method="post">
+<form action="#" th:action="@{/addaddress}" th:object="${addressForm}" method="post">
 
     <div class="well">
 
@@ -82,96 +88,55 @@
             <div class="col-sm-6">
                 <div class="form-group">
                     <label for="name">Nazwa:</label>
-                    <input type="text" class="form-control"  th:value="${supplier.name}" id="name"/>
-                    <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Title error message</td>
+                    <input type="text" class="form-control" th:field="*{name}" placeholder="Nazwa" id="name"/>
+                    <div class = "errors" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Title error message</div>
                 </div>
 
 
             </div>
-            <div class="col-sm-6">
+
+
+
+    </div>
+
+
+    <div class="row">
+
+        <div class="col-sm-9">
+            <div class="form-group">
+                <label for="place">Adres:</label>
+                <input type="text" class="form-control" th:field="*{place}"  placeholder="np. Wyzwolenia 27 Mikołów" id="place"/>
+                <div class = "errors" th:if="${#fields.hasErrors('place')}" th:errors="*{place}">Title error message</div>
+
+        </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="row">
+
+            <div class="col-sm-3">
                 <div class="form-group">
-                    <label for="name2">Nazwa cd:</label>
-                    <input type="text" class="form-control" th:value="${supplier.name2}"  id="name2"/>
-                    <td th:if="${#fields.hasErrors('name2')}" th:errors="*{name2}">Title error message</td>
+                    <label for="contact">Kontakt:</label>
+                    <input type="text" class="form-control" th:field="*{contact}" placeholder="Osoba kontaktowa" id="contact"/>
+                    <div class = "errors" th:if="${#fields.hasErrors('contact')}" th:errors="*{contact}">Title error message</div>
                 </div>
             </div>
 
-
-    </div>
-
+           </div>
 
     <div class="row">
 
-        <div class="col-sm-6">
-            <div class="form-group">
-                <label for="taxIdNumber">NIP:</label>
-                <input type="text" class="form-control" th:value="${supplier.taxIdNumber}"  id="taxIdNumber"/>
-                <td th:if="${#fields.hasErrors('taxIdNumber')}" th:errors="*{taxIdNumber}">Title error message</td>
-            </div>
-        </div>
-        <div class="col-sm-6">
-            <div class="form-group">
-                <label for="address">Adres:</label>
-                <input type="text" class="form-control" th:value="${supplier.address}"  id="address"/>
-                <td th:if="${#fields.hasErrors('address')}" th:errors="*{address}">Title error message</td>
-            </div>
-        </div>
+
+
+
 
 
     </div>
-
-    <div class="row">
-
-        <div class="col-sm-4">
-            <div class="form-group">
-                <label for="zipCode">Kod pocztowy:</label>
-                <input type="text" class="form-control" th:value="${supplier.zipCode}"  id="zipCode"/>
-                <td th:if="${#fields.hasErrors('zipCode')}" th:errors="*{zipCode}">Title error message</td>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="form-group">
-                <label for="city">Miasto:</label>
-                <input type="text" class="form-control" th:value="${supplier.city}"  id="city"/>
-                <td th:if="${#fields.hasErrors('city')}" th:errors="*{city}">Title error message</td>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="form-group">
-                <label for="country">Kraj:</label>
-                <input type="text" class="form-control" th:value="${supplier.country}"  id="country"/>
-                <td th:if="${#fields.hasErrors('country')}" th:errors="*{country}">Title error message</td>
-            </div>
-        </div>
-
     </div>
-
-    <div class="row">
-        <div class="col-sm-4">
-            <div class="form-group">
-                <label for="contactPerson">Osoba kontaktowa:</label>
-                <input type="text" class="form-control" th:value="${supplier.contactPerson}"  id="contactPerson"/>
-                <td th:if="${#fields.hasErrors('contactPerson')}" th:errors="*{contactPerson}">Title error message</td>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="form-group">
-                <label for="email">E-mail:</label>
-                <input type="text" class="form-control" th:value="${supplier.email}"  id="email"/>
-                <td th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Title error message</td>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="form-group">
-                <label for="phoneNumber">Telefon:</label>
-                <input type="text" class="form-control" th:value="${supplier.phoneNumber}"  id="phoneNumber"/>
-                <td th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}">Title error message</td>
-            </div>
-        </div>
-
-
-    </div>
-
     <div class="row">
         <div class="col-sm-4">
 
@@ -181,12 +146,14 @@
             <button type="submit" class="btn btn-success btn-block">ZAPISZ</button>
         </div>
     </div>
-    </div>
 </form>
-    <!--guzik wstecz-->
-    <a href="/" class="btn btn-default btn-lg">
-        <span class="glyphicon glyphicon-chevron-left"></span> Wstecz
-    </a>
+
+
+<!--guzik wstecz-->
+<a href="/" class="btn btn-default btn-lg">
+    <span class="glyphicon glyphicon-chevron-left"></span> Wstecz
+</a>
+
 </div>
 </body>
 </html>

@@ -27,13 +27,46 @@
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
-                <!--<a class="navbar-brand" href="#">Wybierz akcję:</a>-->
+
             </div>
             <ul class="nav navbar-nav">
-                <li><a href="/addsupplier">DODAJ DOSTAWCĘ</a></li>
-                <li  class="active"><a href="/supplierlist">POKAŻ DOSTAWCÓW</a></li>
-                <li><a href="/addpart">DODAJ CZĘŚĆ</a></li>
-                <li><a href="/supplierlist">POKAŻ CZĘŚCI</a></li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">PROJEKTY <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/addproject">Dodaj</a></li>
+                        <li><a href="/projectlist">Pokaż listę</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">DOSTAWCY <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/addsupplier">Dodaj</a></li>
+                        <li><a href="/supplierlist">Pokaż listę</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">CZĘŚCI <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/addpart">Dodaj</a></li>
+                        <li><a href="/partlist">Pokaż listę</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ZAMÓWIENIA <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/addorder">Dodaj</a></li>
+                        <li><a href="/orderlist">Pokaż listę</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ADRESY DOSTAW <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/addaddress">Dodaj</a></li>
+                        <li><a href="/addresslist">Pokaż listę</a></li>
+                    </ul>
+                </li>
+
             </ul>
         </div>
     </nav>
@@ -77,30 +110,6 @@
     </a>
 </div>
 
-<!--<p th:each="supplier : ${suppliers}">-->
-<!--&lt;!&ndash;<h4>ID:</h4>&ndash;&gt;-->
-<!--&lt;!&ndash;<div th:text="${supplier.id}"></div>&ndash;&gt;-->
-<!--<h4>Nazwa:</h4>-->
-<!--<div th:text="${supplier.name}"></div>-->
-<!--<h4>Nazwa cd:</h4>-->
-<!--<div th:text="${supplier.name2}"></div>-->
-<!--<h4>NIP:</h4>-->
-<!--<div th:text="${supplier.taxIdNumber}"></div>-->
-<!--<h4>Adres:</h4>-->
-<!--<div th:text="${supplier.deliveryAddress}"></div>-->
-<!--<h4>Kod pocztowy:</h4>-->
-<!--<div th:text="${supplier.zipCode}"></div>-->
-<!--<h4>Miasto:</h4>-->
-<!--<div th:text="${supplier.city}"></div>-->
-<!--<h4>Kraj:</h4>-->
-<!--<div th:text="${supplier.country}"></div>-->
-<!--<h4>Osoba kontaktowa:</h4>-->
-<!--<div th:text="${supplier.contactPerson}"></div>-->
-<!--<h4>E-mail:</h4>-->
-<!--<div th:text="${supplier.email}"></div>-->
-<!--<h4>Telefon:</h4>-->
-<!--<div th:text="${supplier.phoneNumber}"></div>-->
-<!--<div>-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</div>-->
-<!--</p>-->
+
 </body>
 </html>

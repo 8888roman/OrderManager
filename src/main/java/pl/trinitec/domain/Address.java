@@ -4,6 +4,8 @@ package pl.trinitec.domain;
  * Created by AN-KOP on 2016-11-19.
  */
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -31,11 +33,19 @@ public class Address {
     public Address() {
     }
 
-    public Address(List<PartOrder> partOrders, String name, String place, String contact) {
-        this.partOrders = partOrders;
+    public Address( String name, String place, String contact) {
+
         this.name = name;
         this.place = place;
         this.contact = contact;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {

@@ -36,8 +36,7 @@ public class PartController {
     private PartRepository partRepository;
     @Autowired
     private SupplierRepository supplierRepository;
-    @Autowired
-    private PartOrderRepository partOrderRepository;
+
 
     @RequestMapping(value="/addpart", method=RequestMethod.GET)
     public String addpart(PartForm partForm, Model model) {
@@ -52,7 +51,7 @@ public class PartController {
             return "addpart";
         }
        Supplier supplier = supplierRepository.findOne(partForm.getSupplierId());
-        PartOrder partOrder = partOrderRepository.findOne(partForm.getSupplierId());
+
         partRepository.save(new Part(
                                      partForm.getName(),
                                      partForm.getCatalogueNumber(),

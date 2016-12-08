@@ -75,23 +75,7 @@ public class SupplierController{
         return "editsupplier";
     }
 
-//    @RequestMapping(value= "/editsupplier/{id}", method=RequestMethod.POST)
-//    public String editSupplier(@Valid SupplierForm supplierForm, BindingResult bindingResult) {
-//        if (bindingResult.hasErrors()) {
-//            return "editsupplier/{id}";
-//        }
-//        supplierRepository.save(new Supplier(supplierForm.getName(),
-//                                             supplierForm.getName2(),
-//                                             supplierForm.getTaxIdNumber(),
-//                                             supplierForm.getDeliveryAddress(),
-//                                             supplierForm.getZipCode(),
-//                                             supplierForm.getCity(),
-//                                             supplierForm.getCountry(),
-//                                             supplierForm.getContactPerson(),
-//                                             supplierForm.getEmail(),
-//                                             supplierForm.getPhoneNumber()));
-////       model.addAttribute("suppliers", supplierRepository.findAll());
-//        return "redirect:supplierlist";
+
 // TODO: 30.11.16 edycja dostawcy
 
 

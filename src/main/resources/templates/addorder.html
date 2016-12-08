@@ -36,10 +36,43 @@
 
             </div>
             <ul class="nav navbar-nav">
-                <li><a href="/addsupplier">DODAJ DOSTAWCĘ</a></li>
-                <li><a href="/supplierlist">POKAŻ DOSTAWCÓW</a></li>
-                <li class="active"><a href="/addpart">DODAJ CZĘŚĆ</a></li>
-                <li><a href="/partlist">POKAŻ CZĘŚCI</a></li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">PROJEKTY <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/addproject">Dodaj</a></li>
+                        <li><a href="/projectlist">Pokaż listę</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">DOSTAWCY <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/addsupplier">Dodaj</a></li>
+                        <li><a href="/supplierlist">Pokaż listę</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">CZĘŚCI <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/addpart">Dodaj</a></li>
+                        <li><a href="/partlist">Pokaż listę</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ZAMÓWIENIA <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/addorder">Dodaj</a></li>
+                        <li><a href="/orderlist">Pokaż listę</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ADRESY DOSTAW <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/addaddress">Dodaj</a></li>
+                        <li><a href="/addresslist">Pokaż listę</a></li>
+                    </ul>
+                </li>
+
             </ul>
         </div>
     </nav>
