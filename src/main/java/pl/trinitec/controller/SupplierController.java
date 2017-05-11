@@ -31,7 +31,10 @@ public class SupplierController{
     private PartOrderRepository partOrderRepository;
 
 
-
+    @RequestMapping(value="/login", method=RequestMethod.GET)
+    public String login(Model model) {
+        return "login";
+    }
 
     @RequestMapping(value="/", method=RequestMethod.GET)
     public String index(Model model) {
@@ -89,7 +92,7 @@ public class SupplierController{
 
         @Override
         public void addResourceHandlers(ResourceHandlerRegistry registry) {
-            registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
+           registry.addResourceHandler("/images/**").addResourceLocations("/images/");
         }
     }
 

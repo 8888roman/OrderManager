@@ -6,7 +6,6 @@ package pl.trinitec.form;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
-import sun.plugin2.message.Message;
 
 import javax.validation.constraints.Min;
 
@@ -33,6 +32,7 @@ public class SupplierForm {
     private String email;
 
     private String phoneNumber;
+
 
 
 

@@ -38,9 +38,9 @@ public class PartController {
     private SupplierRepository supplierRepository;
 
 
-    @RequestMapping(value="/addpart", method=RequestMethod.GET)
+    @RequestMapping(value = "/addpart", method = RequestMethod.GET)
     public String addpart(PartForm partForm, Model model) {
-        model.addAttribute("suppliers",supplierRepository.findAll());
+        model.addAttribute("suppliers", supplierRepository.findAll());
         return "addpart";
     }
 
@@ -50,21 +50,21 @@ public class PartController {
         if (bindingResult.hasErrors()) {
             return "addpart";
         }
-       Supplier supplier = supplierRepository.findOne(partForm.getSupplierId());
+        Supplier supplier = supplierRepository.findOne(partForm.getSupplierId());
 
         partRepository.save(new Part(
-                                     partForm.getName(),
-                                     partForm.getCatalogueNumber(),
-                                     partForm.getDescription(),
-                                     partForm.getUnit(),
-                                     partForm.getQuantity(),
-                                     partForm.getPricePerUnit(),
-                                     partForm.getExchangeRate(),
-                                     partForm.getNettoValue(),
-                                     partForm.getDiscount(),
-                                     partForm.getPartTotalValue()
+                partForm.getName(),
+                partForm.getCatalogueNumber(),
+                partForm.getDescription(),
+                partForm.getUnit(),
+                partForm.getQuantity(),
+                partForm.getPricePerUnit(),
+                partForm.getExchangeRate(),
+                partForm.getNettoValue(),
+                partForm.getDiscount(),
+                partForm.getPartTotalValue()
 
-                                        ) );
+        ));
 //                model.addAttribute("parts", partRepository.findAll());    nic nie robi!!!!
         return "redirect:partlist";
     }
@@ -84,7 +84,6 @@ public class PartController {
             registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
         }
     }
-
 
 
 }
