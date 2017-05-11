@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Order Manager</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </meta>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.4/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen"/>
+
+    <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
+            th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+
+    <style>
+        .errors{
+            color:red;
+        }
+
+
+
+    </style>
+
+</head>
+
+<body>
+
+<div th:fragment="header">
+
+
+    <div class="container">
+        <div class="jumbotron text-center">
+            <img th:src="@{~/images/logo.png}" class="img-rounded"/>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="container">
+
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+
+                </div>
+                <ul class="nav navbar-nav">
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false">PROJEKTY <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/addproject">Dodaj</a></li>
+                            <li><a href="/projectlist">Pokaż listę</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false">DOSTAWCY <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/addsupplier">Dodaj</a></li>
+                            <li><a href="/supplierlist">Pokaż listę</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false">CZĘŚCI <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/addpart">Dodaj</a></li>
+                            <li><a href="/partlist">Pokaż listę</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false">ZAMÓWIENIA <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/addorder">Dodaj</a></li>
+                            <li><a href="/orderlist">Pokaż listę</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false">ADRESY DOSTAW <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/addaddress">Dodaj</a></li>
+                            <li><a href="/addresslist">Pokaż listę</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+
+
+                    <div class="pull-right">
+
+                    <div th:inline="text">
+                       <p> <form class="inline" th:action="@{/logout}" method="post">
+
+
+                            Zalogowany jako:
+                            <strong>[[${#httpServletRequest.remoteUser}]]</strong>
+                            <button class="btn btn-xs btn-primary" type="submit">Wyloguj</button>
+
+                        </form>
+                        </p>
+                    </div>
+
+                </div>
+                </div>
+
+
+
+        </nav>
+
+    </div>
+</div>
+</body>
+</html>
